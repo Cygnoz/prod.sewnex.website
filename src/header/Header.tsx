@@ -8,7 +8,7 @@ function Header() {
   return (
     <>
       <div
-        className="bg-[#004040] h-auto lg:h-[840px]"
+        className="bg-[#004040] h-auto lg:h-[840px] pb-10"
         style={{
           backgroundImage: `url(${headerbg})`,
           backgroundSize: "cover",
@@ -71,10 +71,10 @@ function Header() {
 
           {/* Call to Actions */}
           <div className="flex flex-col lg:flex-row justify-center items-center gap-5 mt-5 lg:mt-[450px] mx-2 lg:mx-10">
-            <button className="bg-[#FFFFFF] w-full lg:w-[250px] h-[54px] rounded-full font-bold">
+            <button className="bg-[#FFFFFF] w-[212px] lg:w-[250px] h-[54px] rounded-full font-bold">
               Get a free demo
             </button>
-            <button className="bg-[#90DDAF] w-full lg:w-[212px] h-[54px] rounded-full font-bold">
+            <button className="bg-[#90DDAF] w-[212px] lg:w-[212px] h-[54px] rounded-full font-bold mb-5">
               Watch Video
             </button>
           </div>
