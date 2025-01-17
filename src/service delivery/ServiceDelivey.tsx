@@ -18,11 +18,11 @@ function BoutiqueManagement() {
         {/* Card Grid Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {/* Card 1 */}
-          <img src={card2img} alt="" />
-          <img src={card1img}  alt="" />
+          <img src={card2img} loading='lazy' alt="" />
+          <img src={card1img} loading='lazy' alt="" />
 
           {/* Card 3 that spans 2 columns */}
-          <img src={card3img} alt="" className="col-span-2" />
+          <img src={card3img} loading='lazy' alt="" className="col-span-2" />
         </div>
       </div>
     </div>

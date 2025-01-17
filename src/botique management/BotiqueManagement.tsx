@@ -33,10 +33,10 @@ function BoutiqueManagement() {
         {/* Card Grid Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Card 1 */}
-        <img src={card1} alt="" />
-        <img src={card2} alt="" />
-        <img src={card3} alt="" />
-        <img src={card4} alt="" />
+        <img src={card1} loading="lazy" alt="" />
+        <img src={card2} loading="lazy" alt="" />
+        <img src={card3} loading="lazy" alt="" />
+        <img src={card4} loading="lazy" alt="" />
         </div>
       </div>
     </div>
