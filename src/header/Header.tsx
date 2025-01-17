@@ -74,7 +74,7 @@ function Header() {
             <button className="bg-[#FFFFFF] w-[212px] lg:w-[250px] h-[54px] rounded-full font-bold">
               Get a free demo
             </button>
-            <button className="bg-[#90DDAF] w-[212px] lg:w-[212px] h-[54px] rounded-full font-bold mb-5">
+            <button className="bg-[#90DDAF] w-[212px]  lg:w-[212px] h-[54px] rounded-full font-bold ">
               Watch Video
             </button>
           </div>
