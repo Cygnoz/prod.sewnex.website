@@ -7,39 +7,38 @@ import card4 from '../assets/images/Frame 1187.png'
 function BoutiqueManagement() {
   return (
     <div className="min-h-screen bg-[#E1E1D9] relative">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `url(${gridimg})`,
-          backgroundSize: "contain",
-          backgroundRepeat: "repeat",
-          backgroundPosition: "center",
-          // opacity: 0.2,
-          zIndex: -1,
-        }}
-      ></div>
-
-      {/* Content Section */}
-      <div className="relative p-8">
-        {/* Title Section - Updated styling */}
-        <div className="flex items-center justify-between mb-12">
-          <h1 className="text-3xl font-bold text-[#7F5303]">
-            Streamlined Boutique Management
-          </h1>
-          <p className="text-[#7F5303] ml-8 text-sm">Key Features</p>
-        </div>
-
-        {/* Card Grid Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Card 1 */}
-        <img src={card1} loading="lazy" alt="" />
-        <img src={card2} loading="lazy" alt="" />
-        <img src={card3} loading="lazy" alt="" />
-        <img src={card4} loading="lazy" alt="" />
-        </div>
+    {/* Background Image */}
+    <div
+      className="absolute inset-0"
+      style={{
+        backgroundImage: `url(${gridimg})`,
+        backgroundSize: "contain",
+        backgroundRepeat: "repeat",
+        backgroundPosition: "center",
+        zIndex: -1,
+      }}
+    ></div>
+  
+    {/* Content Section */}
+    <div className="relative p-4 md:p-8">
+      {/* Title Section - Responsive */}
+      <div className="flex flex-col sm:flex-row items-center justify-between mb-8 sm:mb-12 text-center sm:text-left">
+        <h1 className="text-3xl font-bold text-[#7F5303]">
+          <span className="whitespace-nowrap">Streamlined Boutique</span> <br />
+          Management
+        </h1>
+      </div>
+  
+      {/* Card Grid Section - Responsive */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <img src={card1} loading="lazy" alt="" className="w-full h-auto" />
+        <img src={card2} loading="lazy" alt="" className="w-full h-auto" />
+        <img src={card3} loading="lazy" alt="" className="w-full h-auto" />
+        <img src={card4} loading="lazy" alt="" className="w-full h-auto" />
       </div>
     </div>
+  </div>
+  
   );
 }
 

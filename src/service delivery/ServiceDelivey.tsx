@@ -5,27 +5,28 @@ import card3img from '../assets/images/Frame 629499.png'
 function BoutiqueManagement() {
   return (
     <div className="min-h-screen bg-white relative">
-      {/* Content Section */}
-      <div className="relative p-8">
-        {/* Title Section */}
-        <div className="flex items-center justify-between mb-12">
-          <h1 className="text-3xl font-bold text-[#087B44]">
-            Superior Service Delivery for Premium Boutiques
-          </h1>
-          <p className="text-[#09AB5C] ml-8 text-sm">About</p>
-        </div>
-
-        {/* Card Grid Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-          {/* Card 1 */}
-          <img src={card2img} loading='lazy' alt="" />
-          <img src={card1img} loading='lazy' alt="" />
-
-          {/* Card 3 that spans 2 columns */}
-          <img src={card3img} loading='lazy' alt="" className="col-span-2" />
-        </div>
+    {/* Content Section */}
+    <div className="relative p-4 sm:p-8">
+      {/* Title Section - Responsive */}
+      <div className="flex flex-col sm:flex-row items-center justify-between mb-6 sm:mb-12 text-center sm:text-left">
+        <h1 className="text-xl sm:text-3xl font-bold text-[#087B44]">
+          Superior Service Delivery for <br className="sm:hidden" />
+          Premium Boutiques
+        </h1>
+      </div>
+  
+      {/* Card Grid Section - Responsive */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        {/* Card 1 */}
+        <img src={card2img} loading="lazy" alt="" className="w-full h-auto rounded-lg" />
+        <img src={card1img} loading="lazy" alt="" className="w-full h-auto rounded-lg" />
+  
+        {/* Card 3 - Spanning 2 Columns on Medium and Large Screens */}
+        <img src={card3img} loading="lazy" alt="" className="w-full h-auto rounded-lg sm:col-span-2" />
       </div>
     </div>
+  </div>
+  
   );
 }
 

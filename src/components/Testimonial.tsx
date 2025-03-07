@@ -51,9 +51,9 @@ function Testimonial({ }: Props) {
                         <h1 className="text-[24px] sm:text-[28px] md:text-[36px] font-bold ms-5 pt-3">
                             What customers are saying
                         </h1>
-                        <p className="text-[14px] sm:text-[16px] pt-3 sm:pt-5 font-[400]">
+                        {/* <p className="text-[14px] sm:text-[16px] pt-3 sm:pt-5 font-[400]">
                             Testimonial
-                        </p>
+                        </p> */}
                     </div>
                     {currentTestimonial.map((testimoni, index) => (
                         <div
@@ -74,7 +74,7 @@ function Testimonial({ }: Props) {
                                     <p className="text-[12px] sm:text-[14px] self-center">
                                         {testimoni.name} <br /> Entrepreneur
                                     </p>
-                                    <p className="flex justify-start items-center">
+                                    <div className="flex justify-end md:justify-start">
                                         <button
                                             onClick={toggleTestimonials}
                                             className="flex gap-5 text-[#FFFFFF] text-[14px] sm:text-[16px]"
@@ -87,7 +87,7 @@ function Testimonial({ }: Props) {
                                                 <img src={testimoni.button} loading="lazy" className="ms-20" alt="" />
                                             )}
                                         </button>
-                                    </p>
+                                    </div>
                                 </div>
                             </div>
 
