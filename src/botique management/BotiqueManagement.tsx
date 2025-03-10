@@ -1,8 +1,8 @@
 import gridimg from "../assets/images/6c15ac78-3117-4e87-9ec8-4b4427f3a6ce 4.png"; // Update the path based on your directory
-import card1 from '../assets/images/Frame 1153.png'
-import card2 from '../assets/images/Frame 1188 (1).png'
-import card3 from '../assets/images/Frame 1188.png'
-import card4 from '../assets/images/Frame 1187.png'
+import card1 from '../assets/images/Frame 1153(order) (1).png'
+import card2 from '../assets/images/Frame 1188(inventory) (1).png'
+import card3 from '../assets/images//Frame 1188(staff).png'
+import card4 from '../assets/images/Frame 1187(accounts).png'
 
 function BoutiqueManagement() {
   return (

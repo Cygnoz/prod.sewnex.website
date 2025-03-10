@@ -77,6 +77,7 @@ function Header() {
     <div className="mt-5 lg:mt-[10px]">
       <img
         src={header}
+        loading="lazy"
         alt="Header"
         className="max-w-[90%] sm:max-w-[70%] md:max-w-[60%] lg:w-[618px] h-auto"
       />
@@ -85,7 +86,7 @@ function Header() {
     {/* Call to Actions */}
     <div className="flex flex-row justify-center items-center gap-3 sm:gap-5 mt-5 lg:mt-[280px] mx-2 lg:mx-10 ">
       <button className="bg-white px-[30px] sm:w-[200px] md:w-[220px] lg:w-[250px] h-[54px] rounded-full font-bold no">
-        Get a free demo
+        Get a free demo 
       </button>
       <button className="bg-[#90DDAF] px-[30px] sm:w-[200px] md:w-[20px] lg:w-[250px] h-[54px] rounded-full font-bold">
         Watch Video

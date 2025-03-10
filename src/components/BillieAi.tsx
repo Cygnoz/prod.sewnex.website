@@ -1,4 +1,4 @@
-import image from "../assets/images/BillieAIBg.png"
+import image from "../assets/images/Billie AI (1).png"
 
 type Props = {}
 function BillieAi({ }: Props) {
