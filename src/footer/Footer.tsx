@@ -1,10 +1,15 @@
 import backgredient from "../assets/images/footer/bggradient(f).png";
-import sewwnex from "../assets/images/footer/Sewnex.png";
-import ArrowRight from "../assets/icons/arrowRight";
+// import sewwnex from "../assets/images/footer/Sewnex.png";
+// import ArrowRight from "../assets/icons/arrowRight";
 import WhatsappIcon from "../assets/icons/WhatsappIcon";
 import InstagramIcon from "../assets/icons/InstagramIcon";
 import TwitterIcon from "../assets/icons/TwitterIcon";
 import FacebookIcon from "../assets/icons/FacebookIcon";
+import Mail from "../assets/icons/Mail";
+import PhoneIcon from "../assets/icons/PhoneIcon";
+import footer1 from '../assets/images/Footer1.png'
+import footer2 from '../assets/images/Footer2.png'
+import footer3 from '../assets/images/Footer3.png'
 
 function Footer() {
   return (
@@ -49,8 +54,7 @@ function Footer() {
       </div>
 
       <footer className="bg-white py-10">
-        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-12 px-6 md:px-10 py-10">
-          {/* About Us Section */}
+        {/* <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-12 px-6 md:px-10 py-10">
           <div>
             <h3 className="text-lg font-semibold mb-4">About Us</h3>
             <ul className="space-y-2 text-gray-600">
@@ -65,7 +69,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Quick Links Section */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-gray-600">
@@ -75,7 +78,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Contact Us Section */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <p className="text-gray-600">
@@ -85,7 +87,6 @@ function Footer() {
             <p className="text-gray-600 mt-2">notify@cygnoz.com</p>
           </div>
 
-          {/* Community Section */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Community</h3>
             <p className="text-gray-600 mb-4">
@@ -113,7 +114,6 @@ function Footer() {
           </div>
         </div>
 
-        {/* Logo and Copyright Section */}
         <div className="flex flex-col items-center mt-10">
           <div className="mb-6 px-4">
             <img
@@ -126,6 +126,61 @@ function Footer() {
           <p className="text-gray-600 text-sm text-center px-4 whitespace-nowrap">
             © Copyright 2024 sewnex® Inc. All rights reserved.
           </p>
+        </div> */}
+
+        <div className="">
+          <div>
+          <div className="flex items-center gap-4 px-12 py-4">
+          <div className="flex -space-x-2">
+          <div className="rounded-full bg-[#32B271] w-12 h-12"></div>
+          <div className="rounded-full bg-[#0BA158] w-12 h-12"></div>
+          </div>
+          <p className="text-[#232222] text-3xl font-medium">Sewnex</p>
+        </div>
+        <div className="grid grid-cols-6 px-12 gap-4">
+          <div className="col-span-1">
+          <p className="text-[#232222] text-2xl font-medium">Address</p>
+          <p>Cygonex Innovations Private Limited, NM Arcade, Near All India Radio (AIR), NGO Quarters Kakkanad, Kochi, Kerala, India</p>
+          </div>
+          <div className="col-span-1 ms-20">
+          <p className="text-[#232222] text-2xl font-medium">Contact</p>
+          <div className="flex gap-1 items-center">
+            <Mail size={18} color="#232222"/>
+            <p className="text-[#786D6D] text-center text-base font-normal">notify@sewnex.com</p>
+          </div>
+          <div className="flex gap-1 items-center">
+            <PhoneIcon   size={18} color="#232222"/>
+            <p className="text-[#786D6D] text-center text-base font-normal">+919544431166</p>
+          </div>
+          </div>
+          <hr className="rotate-90 border-dashed border-[#0BA158] w-80 -ms-10 mt-24" />
+          <div className="col-span-1">
+          <p className="text-[#232222] text-2xl font-medium mb-1">Site Info</p>
+          <p className="my-1 text-[#786D6D] font-normal text-base">Legal Privacy</p>
+          <p className="text-[#786D6D] font-normal text-base">Terms & Services</p>
+          <p className="my-1 text-[#786D6D] font-normal text-base">Security</p>
+          </div>
+          <div className="col-span-1">
+          <p className="text-[#232222] text-2xl font-medium">About Sewnex</p>
+          <p className="my-1 text-[#786D6D] font-normal text-base">About Us</p>
+          <p className="text-[#786D6D] font-normal text-base">Contact Us</p>
+          <p className="my-1 text-[#786D6D] font-normal text-base">Customer Stories</p>
+          </div>
+          <div className="col-span-1">
+          <p className="text-[#232222] text-2xl font-medium">Learn</p>
+          <p className="my-1 text-[#786D6D] font-normal text-base">Blogs</p>
+          <p className="text-[#786D6D] font-normal text-base">Knowledge Base</p>
+          <p className="my-1 text-[#786D6D] font-normal text-base">News & Events</p>
+          </div>
+          <div className="col-span-1">
+          <div className="flex gap-4 mt-10">
+            <img className="w-24 h-16" src={footer1} alt="" />
+            <img className="w-28 h-14" src={footer2} alt="" />
+            <img className="w-32 h-14" src={footer3} alt="" />
+          </div>
+          </div>
+        </div>
+          </div>
         </div>
       </footer>
     </>

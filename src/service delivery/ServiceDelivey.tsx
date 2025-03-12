@@ -2,7 +2,7 @@
 import card2img from '../assets/images/Rectangle (tail) (22).webp';
  import card3img from '../assets/images/Frame 629499(1).png';
 
-function BoutiqueManagement() {
+function ServiceDelivey() {
   return (
     <div className="min-h-screen bg-white relative">
       <div className="relative p-4 sm:p-8">
@@ -23,4 +23,4 @@ function BoutiqueManagement() {
   );
 }
 
-export default BoutiqueManagement;
+export default ServiceDelivey;
