@@ -3,10 +3,32 @@ import card1 from '../assets/images/Frame 1153(order) (1).png'
 import card2 from '../assets/images/Frame 1188(inventory) (1).png'
 import card3 from '../assets/images//Frame 1188(staff).png'
 import card4 from '../assets/images/Frame 1187(accounts).png'
+//  import header from "../assets/images/header/Frame 99.png";
 
 function BoutiqueManagement() {
+
   return (
-    <div className="min-h-screen bg-[#E1E1D9] relative">
+    <>
+    {/* <div className="flex flex-col lg:flex-row justify-between items-center px-5 lg:px-10 h-auto lg:h-[700px]">
+          <div className="mt-5 lg:mt-[10px]">
+            <img
+              src={header}
+              loading="lazy"
+              alt="Header"
+              className="max-w-[90%] sm:max-w-[70%] md:max-w-[60%] lg:w-[618px] h-auto"
+            />
+          </div>
+          <div className="flex flex-row justify-center items-center gap-3 sm:gap-5 mt-5 lg:mt-[280px] mx-2 lg:mx-10 ">
+            <button className="bg-white px-[30px] sm:w-[200px] md:w-[220px] lg:w-[250px] h-[54px] rounded-full font-bold no">
+              Get a free demo
+            </button>
+            <button className="bg-[#90DDAF] px-[30px] sm:w-[200px] md:w-[20px] lg:w-[250px] h-[54px] rounded-full font-bold">
+              Watch Video
+            </button>
+          </div>
+        </div> */}
+
+   <div className="min-h-screen bg-[#E1E1D9] relative">
     {/* Background Image */}
     <div
       className="absolute inset-0"
@@ -37,7 +59,9 @@ function BoutiqueManagement() {
         <img src={card4} loading="lazy" alt="" className="w-full h-auto" />
       </div>
     </div>
-  </div>
+  </div>    
+    </>
+
   
   );
 }

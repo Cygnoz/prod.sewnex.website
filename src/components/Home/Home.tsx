@@ -3,6 +3,7 @@ import BillieAi from '../../components/BillieAi'
 import LatestNews from '../../components/LatestNews'
 import Testimonial from '../../components/Testimonial'
 import ServiceDelivey from "../../service delivery/ServiceDelivey"
+
 type Props = {}
 
 const Home = ({}: Props) => {
@@ -13,6 +14,7 @@ const Home = ({}: Props) => {
     <BillieAi/>
     <Testimonial/>
     <LatestNews/>
+  
     </>
     
   )

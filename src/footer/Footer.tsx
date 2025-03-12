@@ -1,10 +1,10 @@
-import backgredient from "../assets/images/footer/bggradient(f).png";
+// import backgredient from "../assets/images/footer/bggradient(f).png";
 // import sewwnex from "../assets/images/footer/Sewnex.png";
 // import ArrowRight from "../assets/icons/arrowRight";
-import WhatsappIcon from "../assets/icons/WhatsappIcon";
-import InstagramIcon from "../assets/icons/InstagramIcon";
-import TwitterIcon from "../assets/icons/TwitterIcon";
-import FacebookIcon from "../assets/icons/FacebookIcon";
+// import WhatsappIcon from "../assets/icons/WhatsappIcon";
+// import InstagramIcon from "../assets/icons/InstagramIcon";
+// import TwitterIcon from "../assets/icons/TwitterIcon";
+// import FacebookIcon from "../assets/icons/FacebookIcon";
 import Mail from "../assets/icons/Mail";
 import PhoneIcon from "../assets/icons/PhoneIcon";
 import footer1 from '../assets/images/Footer1.png'
@@ -14,8 +14,7 @@ import footer3 from '../assets/images/Footer3.png'
 function Footer() {
   return (
     <>
-      <div className="relative bg-[#FFB974] text-white p-6 sm:p-8 md:p-10 h-auto">
-        {/* Background Image */}
+      {/* <div className="relative bg-[#FFB974] text-white p-6 sm:p-8 md:p-10 h-auto">
         <img
           src={backgredient}
           loading="lazy"
@@ -23,22 +22,18 @@ function Footer() {
           className="absolute inset-0 w-full h-full object-cover z-0 opacity-20"
         />
 
-        {/* Content Section */}
         <div className="relative z-10 grid grid-cols-2 items-center gap-4 sm:gap-6 md:flex md:justify-between text-center md:text-left">
-          {/* Left Section - Text */}
           <div className="p-4 flex justify-center md:justify-start">
             <p className="text-[16px] sm:text-[20px] md:text-[32px] font-bold text-[#7F5303] leading-tight">
               Discover more about <br className="hidden sm:block" /> our offerings
             </p>
           </div>
 
-          {/* Right Section - Get in Touch */}
           <div className="p-4 flex flex-col items-center md:items-start space-y-2 sm:space-y-4">
             <p className="text-[16px] sm:text-[20px] md:text-[32px] font-bold text-[#A06600]">
               Get in touch
             </p>
 
-            {/* Social Media Icons */}
             <div className="flex justify-center md:justify-start gap-2 sm:gap-4 items-center">
               <a><WhatsappIcon color="#A06600" size={24} /></a>
               <a href="https://www.instagram.com/cygnoz_/" target="_blank" rel="noopener noreferrer">
@@ -51,82 +46,9 @@ function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <footer className="bg-white py-10">
-        {/* <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-12 px-6 md:px-10 py-10">
-          <div>
-            <h3 className="text-lg font-semibold mb-4">About Us</h3>
-            <ul className="space-y-2 text-gray-600">
-              <li>Company Information</li>
-              <li>Worldwide Directory</li>
-              <li>Investor Relations</li>
-              <li>Careers</li>
-              <li>News and Press</li>
-              <li>Events</li>
-              <li>Customer Stories</li>
-              <li>Newsletter</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-gray-600">
-              <li>Home</li>
-              <li>About</li>
-              <li>Features</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <p className="text-gray-600">
-              NM Arcade, Near All India Radio (AIR), NGO Quarters, Kochi, Kerala, India
-            </p>
-            <p className="text-gray-600 mt-2">+91 95 444 211 66</p>
-            <p className="text-gray-600 mt-2">notify@cygnoz.com</p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Community</h3>
-            <p className="text-gray-600 mb-4">
-              Stay up to date on Sewnex news, projects and more
-            </p>
-            <form className="flex items-center border border-gray-300 rounded overflow-hidden">
-              <input
-                type="email"
-                placeholder="Enter email"
-                className="w-full p-2 focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="p-2 bg-gray-800 text-white hover:bg-gray-700"
-              >
-                <ArrowRight color="#F6F6F6" size={20} />
-              </button>
-            </form>
-            <div className="mt-4 flex items-center">
-              <input type="checkbox" id="privacy" className="w-4 h-4" />
-              <label htmlFor="privacy" className="ml-2 text-gray-600">
-                I accept the Privacy Policy
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center mt-10">
-          <div className="mb-6 px-4">
-            <img
-              className="w-[180px] sm:w-[250px] md:w-[400px] lg:w-[500px] xl:w-[600px]"
-              src={sewwnex}
-              loading="lazy"
-              alt="Sewnex Logo"
-            />
-          </div>
-          <p className="text-gray-600 text-sm text-center px-4 whitespace-nowrap">
-            © Copyright 2024 sewnex® Inc. All rights reserved.
-          </p>
-        </div> */}
 
         <div className="">
           <div>
@@ -154,13 +76,37 @@ function Footer() {
           </div>
           </div>
           <hr className="rotate-90 border-dashed border-[#0BA158] w-80 -ms-10 mt-24" />
-          <div className="col-span-1">
+          {/* <div className="col-span-1">
           <p className="text-[#232222] text-2xl font-medium mb-1">Site Info</p>
           <p className="my-1 text-[#786D6D] font-normal text-base">Legal Privacy</p>
           <p className="text-[#786D6D] font-normal text-base">Terms & Services</p>
           <p className="my-1 text-[#786D6D] font-normal text-base">Security</p>
-          </div>
-          <div className="col-span-1">
+          </div> */}
+          <div>
+          <h3 className="text-[#232222] text-2xl font-medium mb-1">Site Info</h3>
+          <ul className="text-[#786D6D] font-normal text-base space-y-1">
+            <li><a href="/privacy-policy">Legal Privacy</a></li>
+            <li><a href="/security">Security</a></li>
+            <li><a href="/terms-and-conditions">Terms & Services</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-[#232222] text-2xl font-medium mb-1">About Sewnex</h3>
+          <ul className="text-[#786D6D] font-normal text-base space-y-1">
+            <li><a href="/aboutus">About Us</a></li>
+            <li><a href="/contactus">Contact Us</a></li>
+            <li><a href="">Customer Stories</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-[#232222] text-2xl font-medium mb-1">Learn</h3>
+          <ul className="text-[#786D6D] font-normal text-base space-y-1">
+            <li><a href="/">Blogs</a></li>
+            <li><a href="/">Knowledge Base</a></li>
+            <li><a href="/">News & Events</a></li>
+          </ul>
+        </div>
+          {/* <div className="col-span-1">
           <p className="text-[#232222] text-2xl font-medium">About Sewnex</p>
           <p className="my-1 text-[#786D6D] font-normal text-base">About Us</p>
           <p className="text-[#786D6D] font-normal text-base">Contact Us</p>
@@ -171,7 +117,7 @@ function Footer() {
           <p className="my-1 text-[#786D6D] font-normal text-base">Blogs</p>
           <p className="text-[#786D6D] font-normal text-base">Knowledge Base</p>
           <p className="my-1 text-[#786D6D] font-normal text-base">News & Events</p>
-          </div>
+          </div> */}
           <div className="col-span-1">
           <div className="flex gap-4 mt-10">
             <img className="w-24 h-16" src={footer1} alt="" />
@@ -183,6 +129,11 @@ function Footer() {
           </div>
         </div>
       </footer>
+      <div className="bg-[#004040] flex flex-col md:flex-row justify-between text-center md:text-left h-auto md:h-[60px] p-2">
+    <div className="ml-auto px-6 flex items-center justify-end">
+      <p className="text-[#FFFFFF] text-sm">Sewnex 2024 | All Rights Reserved</p>
+    </div>
+  </div>
     </>
   );
 }

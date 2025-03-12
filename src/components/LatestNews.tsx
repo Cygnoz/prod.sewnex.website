@@ -1,35 +1,30 @@
 // import PlusIcon from "../assets/icons/PlusIcon"
+import FaceBook from "../assets/icons/FaceBook"
+import Instagram from "../assets/icons/Instagram"
+import Twitter from "../assets/icons/Twitter"
+import YouTube from "../assets/icons/YouTube"
 import image from "../assets/images/Group 1321314621 (1).png"
+import backgredient from "../assets/images/footer/bggradient(f).png";
+
+
 type Props = {}
 
 function LatestNews({ }: Props) {
     return (
+      <div>
         <div className="px-4 sm:px-8 md:px-16 py-6 sm:py-10">
-        {/* Title Section */}
         <div className="text-center md:text-left flex justify-between">
           <p className="text-[#7F5303] text-[20px] sm:text-[32px] md:text-[36px] font-[700] whitespace-nowrap">
             Explore our latest dashboard
           </p>
-          {/* <p className="text-[#847B6C] font-normal text-base">
-            Blog
-          </p> */}
         </div>
       
-        {/* Subtitle Text */}
         <p className="text-center text-[#9A9898] text-[14px] sm:text-[15px] md:text-[16px] font-[400] py-4 sm:py-6">
           Stay informed with our latest news and insights. Discover groundbreaking discoveries, industry <br className="hidden sm:block" />
           trends, and thought-provoking perspectives that shape the world around us.
         </p>
-        {/* <div>
-        <p className="flex justify-center items-center">
-  <PlusIcon size={30} />
-</p>
-<p className="text-xs font-normal text-[#7A7A7A] flex justify-center items-center">
-  See More 
-</p>
-        </div> */}
+   
       
-        {/* Image Section */}
         <div className="w-full">
           <img
             src={image}
@@ -39,6 +34,48 @@ function LatestNews({ }: Props) {
           />
         </div>
       </div>
+      <div className="relative bg-[#FFB974] text-white p-6 sm:p-8 md:p-10 h-auto">
+        <img
+          src={backgredient}
+          loading="lazy"
+          alt="Background Gradient"
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-20"
+        />
+
+        <div className="relative z-10 grid grid-cols-2 items-center gap-4 sm:gap-6 md:flex md:justify-between text-center md:text-left">
+          <div className="p-4 flex justify-center md:justify-start">
+            <div>
+            <p className="text-[42px] font-normal text-[#A06600] leading-tight">
+            Let's Stay Connected 
+            </p>
+            <p className="text-[#232222] text-2xl font-normal my-2">Stay Updated with our latest projects and company news by <br />following us on social media</p>
+            </div>
+          </div>
+
+          <div className="p-4 flex flex-col items-center justify-center space-y-2">
+            <p className="text-[42px] font-medium text-[#A06600]">
+              Get in touch
+            </p>
+
+            <div className="flex justify-center md:justify-start gap-2 sm:gap-4 items-center">
+            <a href="https://www.facebook.com/cygnotechlabs/" target="_blank" rel="noopener noreferrer">
+                <FaceBook bg="#A06600" size={26} />
+              </a>
+              <a href="https://www.instagram.com/cygnoz_/" target="_blank" rel="noopener noreferrer">
+                <Instagram bg="#A06600" color="" size={32}/>
+              </a>
+              <a href="" target="_blank" rel="noopener noreferrer">
+                <YouTube bg="#A06600" color="" size={32}/>
+              </a>
+              {/* <TwitterIcon size={24} /> */}
+              <Twitter bg="#A06600" color="" size={24}/>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
       
     )
 }

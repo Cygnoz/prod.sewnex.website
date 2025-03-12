@@ -1,12 +1,50 @@
 import blackBgImage from '../../assets/images/blackBg.png'
 import aboutUs1 from '../../assets/images/aboutUs1.png'
 import aboutUs2 from '../../assets/images/aboutUs2.png'
+// import headerBg from '../../assets/images/aboutUsBg.png'
+import headerBg2 from '../../assets/images/tinted_image (2).png'
 
 type Props = {}
 
 const AboutUs = ({ }: Props) => {
     return (
         <div>
+            <div
+                className="bg-[#004040] h-auto lg:h-[640px] pb-16 rounded-b-3xl"
+            // style={{
+            //     backgroundImage: `url(${blackBgImage})`,
+            //     backgroundSize: "cover",
+            //     backgroundPosition: "center",
+            // }}
+            >
+                <div className="relative p-6 rounded-lg overflow-hidden mb-6">
+                <div
+                    className="relative bg-[#004040] bg-opacity-60 p-12 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 
+             bg-blend-multiply"
+                    style={{
+                        backgroundImage: `url(${blackBgImage})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                    }}
+                >
+                      <div className="relative w-[700px] h-[512px] ml-auto">
+                        <img src={headerBg2} alt="Sewnex Threads" className="rounded-lg shadow-lg" />
+                    </div>
+
+                    {/* Text Section */}
+                    <div className="absolute w-[750px] h-[416px] text-white bg-[#004040] p-16 ms-6 flex flex-col justify-center rounded-l-3xl rounded-br-[50px]">
+                        <h2 className="text-2xl md:text-3xl font-bold text-green-400">About Sewnex</h2>
+                        <p className="mt-4 text-gray-300 leading-relaxed">
+                            At Sewnex, we understand that managing a boutique involves much more than just daily operations.
+                            It’s about creating meaningful customer experiences while keeping inventory, staff, and sales running smoothly.
+                            That’s why we’ve designed Sewnex to streamline the complexities, giving you more time to focus on what matters most—
+                            nurturing relationships, growing your brand, and delivering top-notch service to your customers.
+                        </p>
+                    </div>
+                  
+                </div>
+                </div>
+            </div>
             <div style={{
                 backgroundImage: `url(${blackBgImage})`,
                 backgroundSize: "cover",

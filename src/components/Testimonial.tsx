@@ -38,7 +38,7 @@ function Testimonial() {
       >
         <div className="flex flex-col md:flex-row text-[#DBDBDB] px-5 sm:px-10 justify-between">
           <h1 className="text-[24px] sm:text-[28px] md:text-[36px] font-bold ms-5 pt-3">
-            What customers are saying
+            What our clients are saying
           </h1>
         </div>
         <div className="flex flex-col md:flex-row px-5 sm:px-10 gap-5 md:gap-10 pb-10 sm:pb-16 md:pb-20">
