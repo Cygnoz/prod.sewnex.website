@@ -5,15 +5,21 @@ import Layout from "../Layout/Layout";
 import Privacy from "../Pages/Privacy";
 import Security from "../Pages/Security";
 import TermsandConditions from "../Pages/TermsandConditions";
+import Blog from "../Pages/Blogs/Blog";
+import NewsandEvent from "../Pages/NewsAndEvents/NewsandEvent";
+import ViewAllEvents from "../Pages/NewsAndEvents/ViewAllEvents";
+import ViewAEvent from "../Pages/NewsAndEvents/ViewAEvent";
+import ViewAllNews from "../Pages/NewsAndEvents/ViewAllNews";
+import ViewANews from "../Pages/NewsAndEvents/ViewANews";
 
-const BoutiqueManagement = lazy(()=>import('../botique management/BotiqueManagement'))
-const ServiceDelivery = lazy(()=>import('../service delivery/ServiceDelivey'))
-const Billie = lazy(()=>import('../components/BillieAi'))
-const Testimonial = lazy(()=>import('../components/Testimonial'))
-const LatestNews = lazy(()=>import('../components/LatestNews'))
-const AboutUs = lazy(()=>import('../components/AboutUs/AboutUs'))
-const Features = lazy(()=>import('../components/Features/Features'))
-const ContactUs = lazy(()=>import('../components/ContactUs/ContactUs'))
+const BoutiqueManagement = lazy(() => import('../botique management/BotiqueManagement'))
+const ServiceDelivery = lazy(() => import('../service delivery/ServiceDelivey'))
+const Billie = lazy(() => import('../components/BillieAi'))
+const Testimonial = lazy(() => import('../components/Testimonial'))
+const LatestNews = lazy(() => import('../components/LatestNews'))
+const AboutUs = lazy(() => import('../components/AboutUs/AboutUs'))
+const Features = lazy(() => import('../components/Features/Features'))
+const ContactUs = lazy(() => import('../components/ContactUs/ContactUs'))
 
 const AppRoutes = () => {
   return (
@@ -23,67 +29,114 @@ const AppRoutes = () => {
           path="/"
           element={
             <>
-            <Layout>
-            <Header />
-              <BoutiqueManagement/>
-              <ServiceDelivery/>
-              <Billie/>
-              <Testimonial/>
-              <LatestNews/>
-            </Layout>
+              <Layout>
+                <Header />
+                <BoutiqueManagement />
+                <ServiceDelivery />
+                <Billie />
+                <Testimonial />
+                <LatestNews />
+              </Layout>
             </>
           }
         />
 
         <Route
-        path="/aboutus"
-        element={
+          path="/aboutus"
+          element={
             <Layout>
-                <AboutUs/>
+              <AboutUs />
             </Layout>
-        }
+          }
         />
         <Route
-        path="/features"
-        element={
+          path="/features"
+          element={
             <Layout>
-                <Features/>
+              <Features />
             </Layout>
-        }
+          }
         />
         <Route
-        path="/contactus"
-        element={
+          path="/contactus"
+          element={
             <Layout>
-                <ContactUs/>
+              <ContactUs />
             </Layout>
-        }
+          }
         />
         <Route
-        path="/privacy-policy"
-        element={
+          path="/privacy-policy"
+          element={
             <Layout>
-                <Privacy/>
+              <Privacy />
             </Layout>
-        }
+          }
         />
         <Route
-        path="/security"
-        element={
+          path="/security"
+          element={
             <Layout>
-                <Security/>
+              <Security />
             </Layout>
-        }
+          }
         />
         <Route
-        path="/terms-and-conditions"
-        element={
+          path="/terms-and-conditions"
+          element={
             <Layout>
-                <TermsandConditions/>
+              <TermsandConditions />
             </Layout>
-        }
+          }
         />
-
+        <Route
+          path="/blogs"
+          element={
+            <Layout>
+              <Blog />
+            </Layout>
+          }
+        />
+        <Route
+          path="/news-and-events"
+          element={
+            <Layout>
+              <NewsandEvent />
+            </Layout>
+          }
+        />
+        <Route
+          path="/news-and-events/view-all-events"
+          element={
+            <Layout>
+              <ViewAllEvents />
+            </Layout>
+          }
+        />
+        <Route
+          path="/news-and-events/view-all-events/view-event"
+          element={
+            <Layout>
+              <ViewAEvent />
+            </Layout>
+          }
+        />
+        <Route
+          path="/news-and-events/view-all-news"
+          element={
+            <Layout>
+              <ViewAllNews />
+            </Layout>
+          }
+        />
+        <Route
+          path="/news-and-events/view-all-news/view-news"
+          element={
+            <Layout>
+              <ViewANews />
+            </Layout>
+          }
+        />
       </Routes>
     </Suspense>
   );

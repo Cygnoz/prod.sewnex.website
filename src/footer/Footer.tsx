@@ -101,9 +101,9 @@ function Footer() {
         <div>
           <h3 className="text-[#232222] text-2xl font-medium mb-1">Learn</h3>
           <ul className="text-[#786D6D] font-normal text-base space-y-1">
-            <li><a href="/">Blogs</a></li>
+            <li><a href="/blogs">Blogs</a></li>
             <li><a href="/">Knowledge Base</a></li>
-            <li><a href="/">News & Events</a></li>
+            <li><a href="/news-and-events">News & Events</a></li>
           </ul>
         </div>
           {/* <div className="col-span-1">
