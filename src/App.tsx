@@ -2,6 +2,7 @@
 import { Suspense } from 'react'
 import './App.css'
  import AppRoutes from './Routes/Routes'
+import { Toaster } from 'react-hot-toast'
 // import Footer from './footer/Footer'
 // import Header from './header/Header'
 // import { Route, Routes } from 'react-router-dom'
@@ -29,6 +30,7 @@ function App() {
      <Suspense fallback={<div>Loading...</div>}>
           <AppRoutes/>
         </Suspense>
+        <Toaster reverseOrder={false} />
     </>
   )
 }
