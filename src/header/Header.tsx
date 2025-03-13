@@ -1,6 +1,9 @@
 import headerbg from "../assets/images/header/headerbg.png";
 import header from "../assets/images/header/Frame 99.png";
 import "./Header.css";
+import FreeDemoModal from "../components/FreeDemoModal";
+import Modal from "../features/Modal";
+import { useResponse } from "../context/ResponseContext";
 // import { useEffect, useRef, useState } from "react";
 // import { Link } from "react-router-dom";
 
@@ -19,11 +22,12 @@ function Header() {
   //     document.removeEventListener("mousedown", handleClickOutside);
   //   };
   // }, []);
+  const {isFeedbackModalOpen,setIsFeedbackModalOpen}=useResponse()
   return (
     <>
     {/* <Navbar/> */}
       <div
-        className="bg-[#004040] h-auto lg:h-[740px] pb-10"
+        className="bg-[#004040] h-auto lg:h-[740px] pb-10 w-full"
         style={{
            backgroundImage: `url(${headerbg})`,
           backgroundSize: "cover",
@@ -78,7 +82,7 @@ function Header() {
             />
           </div>
           <div className="flex flex-row justify-center items-center gap-3 sm:gap-5 mt-5 lg:mt-[280px] mx-2 lg:mx-10 ">
-            <button className="bg-white px-[30px] sm:w-[200px] md:w-[220px] lg:w-[250px] h-[54px] rounded-full font-bold no">
+            <button onClick={()=>setIsFeedbackModalOpen(true)} className="bg-white px-[30px] sm:w-[200px] md:w-[220px] lg:w-[250px] h-[54px] rounded-full font-bold no">
               Get a free demo
             </button>
             <button className="bg-[#90DDAF] px-[30px] sm:w-[200px] md:w-[20px] lg:w-[250px] h-[54px] rounded-full font-bold">
@@ -91,7 +95,9 @@ function Header() {
 
         </div>
       </div>
-
+      <Modal   open={isFeedbackModalOpen} onClose={()=>setIsFeedbackModalOpen(false)}>
+            <FreeDemoModal onClose={()=>setIsFeedbackModalOpen(false)}/>
+          </Modal>
     </>
   );
 }

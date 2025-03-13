@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom"
 import '../header/Header.css'
+import { useResponse } from "../context/ResponseContext";
 
 type Props = {}
 
@@ -8,7 +9,7 @@ const Navbar = ({}: Props) => {
     
        const [menuOpen, setMenuOpen] = useState(false);
         const menuRef = useRef<HTMLDivElement>(null);
-      
+        const {setIsFeedbackModalOpen}=useResponse()
         useEffect(() => {
           const handleClickOutside = (event: any) => {
             if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -21,11 +22,18 @@ const Navbar = ({}: Props) => {
           };
         }, []);
   return (
+    <>
     <div>
         <div className="bg-[#004040] w-full h-auto">
 <nav className="bg-opacity-60 w-full py-4 px-6 flex justify-between items-center relative">
           {/* Left Section: Logo */}
-          <h3 className="text-[#039494] text-2xl font-bold">Sewnex</h3>
+          <div className="flex items-center gap-4 px-12 py-4">
+          <div className="flex -space-x-2">
+          <div className="rounded-full bg-[#32B271] w-10 h-10"></div>
+          <div className="rounded-full bg-[#0BA158] w-10 h-10"></div>
+          </div>
+          <p className="text-white text-3xl font-medium">Sewnex</p>
+        </div>
 
           {/* Center Section: Navigation Menu (Hidden on Mobile) */}
           <div className="hidden md:flex text-white text-lg bg-[#004D4D] h-16 rounded-[50px] w-[595px] px-5 py-1 gap-10 justify-center items-center">
@@ -37,7 +45,7 @@ const Navbar = ({}: Props) => {
 
           {/* Right Section: Sign Up Button (Hidden on Mobile) */}
           <div className="hidden md:flex items-center gap-4 lg:me-5">
-            <button className="button px-4 py-2 lg:px-8 lg:py-3">
+            <button onClick={()=>setIsFeedbackModalOpen(true)} className="button px-4 py-2 lg:px-8 lg:py-3">
               <div className="dots_border"></div>
               <span className="text_button text-white">Get a Free Demo</span>
             </button>
@@ -65,7 +73,9 @@ const Navbar = ({}: Props) => {
           )}
         </nav>
 </div>
+
     </div>
+  </>
   )
 }
 
