@@ -95,14 +95,14 @@ function Footer() {
           <ul className="text-[#786D6D] font-normal text-base space-y-1">
             <li><a href="/aboutus">About Us</a></li>
             <li><a href="/contactus">Contact Us</a></li>
-            <li><a href="">Customer Stories</a></li>
+            <li><a href="/customerStories">Customer Stories</a></li>
           </ul>
         </div>
         <div>
           <h3 className="text-[#232222] text-2xl font-medium mb-1">Learn</h3>
           <ul className="text-[#786D6D] font-normal text-base space-y-1">
             <li><a href="/blogs">Blogs</a></li>
-            <li><a href="/">Knowledge Base</a></li>
+            <li><a href="/knowledge-base">Knowledge Base</a></li>
             <li><a href="/news-and-events">News & Events</a></li>
           </ul>
         </div>

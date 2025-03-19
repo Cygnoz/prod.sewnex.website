@@ -38,9 +38,9 @@ const Navbar = ({}: Props) => {
           {/* Center Section: Navigation Menu (Hidden on Mobile) */}
           <div className="hidden md:flex text-white text-lg bg-[#004D4D] h-16 rounded-[50px] w-[595px] px-5 py-1 gap-10 justify-center items-center">
             <Link to="/" className="hover:text-gray-300 hover:scale-125 transition-transform duration-200">Home</Link>
-            <Link to="/aboutus" className="hover:text-gray-300">About Us</Link>
-            <Link to="/features" className="hover:text-gray-300">Features</Link>
-            <Link to="/contactus" className="hover:text-gray-300">Contact Us</Link>
+            <Link to="/aboutus" className="hover:text-gray-300 hover:scale-125 transition-transform duration-200">About Us</Link>
+            <Link to="/" className="hover:text-gray-300 hover:scale-125 transition-transform duration-200">Features</Link>
+            <Link to="/contactus" className="hover:text-gray-300 hover:scale-125 transition-transform duration-200">Contact Us</Link>
           </div>
 
           {/* Right Section: Sign Up Button (Hidden on Mobile) */}
@@ -67,7 +67,7 @@ const Navbar = ({}: Props) => {
             >
               <Link to="/" className="hover:text-gray-300 hover:scale-125 transition-transform duration-200">Home</Link>
               <Link to="/aboutus" className="hover:text-gray-300">About Us</Link>
-              <Link to="/features" className="hover:text-gray-300">Features</Link>
+              <Link to="/" className="hover:text-gray-300">Features</Link>
               <Link to="/contactus" className="hover:text-gray-300">Contact Us</Link>
             </div>
           )}

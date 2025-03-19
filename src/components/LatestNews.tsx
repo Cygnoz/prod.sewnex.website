@@ -4,7 +4,7 @@ import Instagram from "../assets/icons/Instagram"
 import Twitter from "../assets/icons/Twitter"
 import YouTube from "../assets/icons/YouTube"
 import image from "../assets/images/Group 1321314621 (1).png"
-import backgredient from "../assets/images/footer/bggradient(f).png";
+import backgredient from "../assets/images/FooterBg.png";
 
 
 type Props = {}
@@ -34,41 +34,42 @@ function LatestNews({ }: Props) {
           />
         </div>
       </div>
-      <div className="relative bg-[#FFB974] text-white p-6 sm:p-8 md:p-10 h-auto">
+      <div className="relative bg-black text-white p-6 sm:p-8 md:p-10 h-auto">
         <img
           src={backgredient}
           loading="lazy"
           alt="Background Gradient"
-          className="absolute inset-0 w-full h-full object-cover z-0 opacity-20"
+          className="absolute inset-0 w-full h-full z-0 opacity-20"
         />
 
         <div className="relative z-10 grid grid-cols-2 items-center gap-4 sm:gap-6 md:flex md:justify-between text-center md:text-left">
           <div className="p-4 flex justify-center md:justify-start">
             <div>
-            <p className="text-[42px] font-normal text-[#A06600] leading-tight">
-            Let's Stay Connected 
+            <p className="text-[42px] font-normal text-[#07C6C6] leading-tight">
+            Stay connected, stay inspired. 
             </p>
-            <p className="text-[#232222] text-2xl font-normal my-2">Stay Updated with our latest projects and company news by <br />following us on social media</p>
+            <p className="text-[#D9D9D9] text-base font-normal my-2">Join us on social media and be part of the Sewnex community.
+            </p>
             </div>
           </div>
 
           <div className="p-4 flex flex-col items-center justify-center space-y-2">
-            <p className="text-[42px] font-medium text-[#A06600]">
-              Get in touch
+            <p className="text-[42px] font-medium text-[#D9D9D9]">
+              Follow Us On
             </p>
 
             <div className="flex justify-center md:justify-start gap-2 sm:gap-4 items-center">
             <a href="https://www.facebook.com/cygnotechlabs/" target="_blank" rel="noopener noreferrer">
-                <FaceBook bg="#A06600" size={26} />
+                <FaceBook bg="#FEFEFE" size={26} />
               </a>
               <a href="https://www.instagram.com/cygnoz_/" target="_blank" rel="noopener noreferrer">
-                <Instagram bg="#A06600" color="" size={32}/>
+                <Instagram bg="#FEFEFE" color="" size={32}/>
               </a>
               <a href="" target="_blank" rel="noopener noreferrer">
-                <YouTube bg="#A06600" color="" size={32}/>
+                <YouTube bg="#FEFEFE" color="" size={32}/>
               </a>
               {/* <TwitterIcon size={24} /> */}
-              <Twitter bg="#A06600" color="" size={24}/>
+              <Twitter bg="#FEFEFE" color="" size={24}/>
              
             </div>
           </div>

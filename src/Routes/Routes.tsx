@@ -11,6 +11,12 @@ import ViewAllEvents from "../Pages/NewsAndEvents/ViewAllEvents";
 import ViewAEvent from "../Pages/NewsAndEvents/ViewAEvent";
 import ViewAllNews from "../Pages/NewsAndEvents/ViewAllNews";
 import ViewANews from "../Pages/NewsAndEvents/ViewANews";
+import BlogView from "../Pages/Blogs/BlogView";
+import KnowledgeBase from "../Pages/KnowLedgeBase/KnowledgeBase";
+import KBView1 from "../Pages/KnowLedgeBase/KBView1";
+import KBGettingStarted from "../Pages/KnowLedgeBase/KBGettingStarted";
+import KBIntroductiontoCRM from "../Pages/KnowLedgeBase/KBIntroductiontoCRM";
+import CustomerStories from "../components/CustomerStories/CustomerStories";
 
 const BoutiqueManagement = lazy(() => import('../botique management/BotiqueManagement'))
 const ServiceDelivery = lazy(() => import('../service delivery/ServiceDelivey'))
@@ -18,7 +24,6 @@ const Billie = lazy(() => import('../components/BillieAi'))
 const Testimonial = lazy(() => import('../components/Testimonial'))
 const LatestNews = lazy(() => import('../components/LatestNews'))
 const AboutUs = lazy(() => import('../components/AboutUs/AboutUs'))
-const Features = lazy(() => import('../components/Features/Features'))
 const ContactUs = lazy(() => import('../components/ContactUs/ContactUs'))
 
 const AppRoutes = () => {
@@ -49,19 +54,20 @@ const AppRoutes = () => {
             </Layout>
           }
         />
-        <Route
-          path="/features"
-          element={
-            <Layout>
-              <Features />
-            </Layout>
-          }
-        />
+       
         <Route
           path="/contactus"
           element={
             <Layout>
               <ContactUs />
+            </Layout>
+          }
+        />
+        <Route
+          path="/customerStories"
+          element={
+            <Layout>
+              <CustomerStories />
             </Layout>
           }
         />
@@ -94,6 +100,14 @@ const AppRoutes = () => {
           element={
             <Layout>
               <Blog />
+            </Layout>
+          }
+        />
+        <Route
+          path="/blog/view"
+          element={
+            <Layout>
+              <BlogView />
             </Layout>
           }
         />
@@ -135,6 +149,30 @@ const AppRoutes = () => {
             <Layout>
               <ViewANews />
             </Layout>
+          }
+        />
+        <Route
+          path="/knowledge-base"
+          element={
+              <KnowledgeBase />
+          }
+        />
+         <Route
+          path="/knowledge-base/view"
+          element={
+              <KBView1 />
+          }
+        />
+         <Route
+          path="/knowledge-base/gettingStarted"
+          element={
+              <KBGettingStarted />
+          }
+        />
+        <Route
+          path="/knowledge-base/intro"
+          element={
+              <KBIntroductiontoCRM />
           }
         />
       </Routes>

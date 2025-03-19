@@ -1,7 +1,41 @@
+import { useEffect, useState } from "react";
+import useApi from "../Hooks/useApi";
+import { endPoints } from "../service/apiEndpoints";
 
 type Props = {}
 
 const Security = ({ }: Props) => {
+    const [security, setSecurity] = useState([]);
+    const { request: getSecurity } = useApi("get", 3001);
+  
+    const handleGetData = async () => {
+      try {
+        const url = `${endPoints.TERMS}?type=Security&project=Sewnex`;
+        const { response, error } = await getSecurity(url);
+        console.log('url',url);
+        console.log('response',response);
+        console.log('err',error);
+        
+        if (!error && response) {
+          console.log(response.data);
+          setSecurity(response.data.terms);
+        }
+        else{
+          console.log(error.response.data.message);
+          
+        }
+      } catch (error) {
+        console.log("Error", error);
+      }
+    };
+  
+  
+    useEffect(() => {
+      handleGetData();
+    }, []);
+
+    console.log('sec',security);
+    
     return (
         <div>
             <div className="m-6 space-y-4">

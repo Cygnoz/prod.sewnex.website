@@ -1,7 +1,37 @@
+import { useEffect, useState } from "react";
+import { endPoints } from "../service/apiEndpoints";
+import useApi from "../Hooks/useApi";
 
 type Props = {}
 
 const TermsandConditions = ({}: Props) => {
+
+  const [terms, setTerms] = useState([]);
+  const { request: getTerms } = useApi("get", 3001);
+
+  const handleGetData = async () => {
+    try {
+      const url = `${endPoints.TERMS}?type=TermsAndConditions&project=Sewnex`;
+      const { response, error } = await getTerms(url);
+      console.log('url',url);
+      console.log('res',response);
+      console.log('err',error);
+      
+      if (!error && response) {
+        setTerms(response.data.terms);
+      }
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
+
+  console.log("Blog Data", terms);
+
+  useEffect(() => {
+    handleGetData();
+  }, []);
+
+
   return (
     <div>
           <div className="m-8 space-y-8 text-[18px] text-[#353d44] poppins-medium">

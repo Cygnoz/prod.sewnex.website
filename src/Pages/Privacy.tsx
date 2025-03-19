@@ -1,7 +1,42 @@
+import { useEffect, useState } from "react"
+import useApi from "../Hooks/useApi"
+import { endPoints } from "../service/apiEndpoints"
 
 type Props = {}
 
 const Privacy = ({ }: Props) => {
+
+    const {request : getPrivacy}=useApi('get',3001)
+    const [privacy, setPrivacy]=useState([])
+
+    const handleGetPrivacy = async()=>{
+        try{
+            const url = `${endPoints.TERMS}?type=LegalAndPrivacy&project=Sewnex`
+            const {response, error}= await getPrivacy(url)
+            console.log('res',response);
+            console.log('err',error);
+            console.log('ur;',url);
+            if(response && !error){
+                console.log(response.data);
+                setPrivacy(response.data?.terms)
+            }
+            else{
+                console.log(error.response.data.message);
+                
+            }
+        }
+        catch(err){
+            console.log('Un expected error',err);
+            
+        }
+    }
+
+    useEffect(()=>{
+        handleGetPrivacy()
+    },[])
+
+    console.log('pri',privacy);
+    
     return (
         <div>
             <div className="my-10 mx-8 space-y-4">
