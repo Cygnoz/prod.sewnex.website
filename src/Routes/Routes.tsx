@@ -104,7 +104,7 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path="/blog/view"
+          path="/blog/view/:id"
           element={
             <Layout>
               <BlogView />
@@ -128,7 +128,7 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path="/news-and-events/view-all-events/view-event"
+          path="/news-and-events/view-all-events/view-event/:id"
           element={
             <Layout>
               <ViewAEvent />
@@ -144,7 +144,7 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path="/news-and-events/view-all-news/view-news"
+          path="/news-and-events/view-all-news/view-news/:id"
           element={
             <Layout>
               <ViewANews />
@@ -158,19 +158,19 @@ const AppRoutes = () => {
           }
         />
          <Route
-          path="/knowledge-base/view"
+          path="/knowledge-base/:id"
           element={
               <KBView1 />
           }
         />
          <Route
-          path="/knowledge-base/gettingStarted"
+          path="/knowledge-base/:categoryName/:id"
           element={
               <KBGettingStarted />
           }
         />
         <Route
-          path="/knowledge-base/intro"
+          path="/knowledge-base/:categoryName/:subcategory/:id"
           element={
               <KBIntroductiontoCRM />
           }

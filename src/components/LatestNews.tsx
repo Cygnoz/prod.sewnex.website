@@ -68,7 +68,6 @@ function LatestNews({ }: Props) {
               <a href="" target="_blank" rel="noopener noreferrer">
                 <YouTube bg="#FEFEFE" color="" size={32}/>
               </a>
-              {/* <TwitterIcon size={24} /> */}
               <Twitter bg="#FEFEFE" color="" size={24}/>
              
             </div>

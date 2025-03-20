@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import ChevronRight from "../../assets/icons/ChevronRight"
 import KBHeader from "./KBHeader"
 import PrinterIcon from "../../assets/icons/PrinterIcon"
@@ -9,12 +9,70 @@ import Clock from "../../assets/icons/Clock"
 import UturnArrow from "../../assets/icons/UturnArrow"
 import DirectionIcon from "../../assets/icons/DirectionIcon"
 import Footer from "../../footer/Footer"
+import { useEffect, useState } from "react"
+import { endPoints } from "../../service/apiEndpoints"
+import useApi from "../../Hooks/useApi"
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 type Props = {}
 
 const KBIntroductiontoCRM = ({ }: Props) => {
 
-    const navigate = useNavigate()
+    const [data, setData] = useState<any>([]);
+    const { request: getData } = useApi("get", 3001);
+    const { id } = useParams();
+  
+    const handleGetData = async () => {
+      try {
+        const url = `${endPoints.GET_ARTICLE}/${id}`;
+        const { response, error } = await getData(url);
+  
+        if (!error && response) {
+          setData(response.data.data);
+        }
+      } catch (error) {
+        console.log("Error", error);
+      }
+    };
+
+    useEffect(() => {
+        handleGetData();
+      }, []);
+      console.log('data',data);
+
+      const handlePrint = () => {
+        const printContents = document.querySelector('.prinding-div')?.innerHTML;
+        if (!printContents) return;
+      
+        const originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+      
+        window.print();
+      
+        document.body.innerHTML = originalContents;
+        window.location.reload();
+      };
+      
+      const handlePDF = () => {
+        const element = document.querySelector('.prinding-div') as HTMLElement;
+        if (!element) return;
+      
+        html2canvas(element, { scale: 2 }).then((canvas: HTMLCanvasElement) => {
+          const imgData = canvas.toDataURL('image/png');
+          const pdf = new jsPDF('p', 'mm', 'a4');
+      
+          const imgWidth = 200; 
+          const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      
+          pdf.addImage(imgData, 'PNG', 0, 10, imgWidth, imgHeight);
+          pdf.save('document.pdf');
+        }).catch((error) => {
+          console.error("Error generating PDF:", error);
+        });
+      };
+      
+      const navigate = useNavigate();
     return (
         <div>
             <KBHeader />
@@ -22,24 +80,24 @@ const KBIntroductiontoCRM = ({ }: Props) => {
                 <div className="flex gap-2 items-center">
                     <p onClick={() => navigate('/knowledge-base')} className="text-[#022424] text-xl font-bold cursor-pointer">Knowledge Base</p>
                     <ChevronRight color="#002222" size={12} />
-                    <p onClick={() => navigate('/knowledge-base/view')} className="text-[#022424] text-xl font-bold cursor-pointer">CRM</p>
+                    <p onClick={() => navigate(`/knowledge-base/${data?.category?._id}`)} className="text-[#022424] text-xl font-bold cursor-pointer">{data?.category?.categoryName}</p>
                     <ChevronRight color="#002222" size={12} />
-                    <p onClick={() => navigate('/knowledge-base/gettingStarted')} className="text-[#022424] text-xl font-bold cursor-pointer">Getting Started</p>
+                    <p onClick={() => navigate(`/knowledge-base/${data?.category?.categoryName}/${data.subCategory._id}`)} className="text-[#022424] text-xl font-bold cursor-pointer">{data?.subCategory?.subCategoryName}</p>
                     <ChevronRight size={12} />
-                    <p className="text-[#515C5C] text-xl font-bold">Introduction to CRM</p>
+                    <p className="text-[#515C5C] text-xl font-bold">{data.title}</p>
                 </div>
 
                 <div className="flex">
                     <div className="flex px-5 py-8 mt-5 w-full">
                         <p className="text-[#303F58] text-[20px] font-bold">
-                            Introduction to Bill Bizz CRM
+                            {data.title}
                         </p>
                         <div className="ml-auto flex items-center gap-3">
-                            <button className="border py-2 px-3 bg-[#DBF8EA] border-[#097D44] text-[#097D44] text-xs rounded-[40px] flex items-center justify-center gap-1" >
+                            <button onClick={handlePDF} className="border py-2 px-3 bg-[#DBF8EA] border-[#097D44] text-[#097D44] text-xs rounded-[40px] flex items-center justify-center gap-1" >
                                 <FileDown />
                                 PDF
                             </button>
-                            <button className="border py-2 px-3 bg-[#097D44] text-white text-xs rounded-[40px]  flex items-center justify-center gap-1">
+                            <button onClick={handlePrint} className="border py-2 px-3 bg-[#097D44] text-white text-xs rounded-[40px]  flex items-center justify-center gap-1">
                                 <PrinterIcon />
                                 Print
                             </button>
@@ -50,7 +108,7 @@ const KBIntroductiontoCRM = ({ }: Props) => {
                 <div className="px-5 grid grid-cols-12 my-4 gap-4 prinding-div">
                     <div className="col-span-5">
                         <p className="text-[#4B5C79B5] text-2xl font-semibold">What is CRM ?</p>
-                        <p className="text-[#303F58] text-sm font-medium my-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos saepe quam sunt exercitationem aperiam doloremque, quae facilis, soluta sit unde iste reiciendis officiis eius sapiente recusandae veritatis excepturi temporibus praesentium.
+                        <p className="text-[#303F58] text-sm font-medium my-2">{data?.content}
                         </p>
                         <div className="grid grid-cols-2 gap-6 mt-4">
                             <div>

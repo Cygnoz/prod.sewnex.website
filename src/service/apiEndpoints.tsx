@@ -4,6 +4,11 @@ export const endPoints = {
     ADD_WEBSITE_LEAD: "/websiteLead",
 
     // Website cms
-    TERMS:'/terms',
+    GET_TERMS:'/terms',
+    GET_POST:'/post',   
+    GET_A_POST:'/posts',
+    GET_CATEGORIES:'/categories',
+    GET_ARTICLE:'/article',
+    GET_SUBCATEGORY:'/subCategory',
 
 }    

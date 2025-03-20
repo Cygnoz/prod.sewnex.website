@@ -13,7 +13,7 @@ const FreeDemoModal: React.FC<Props> = ({ onClose }) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    project: "Sewnex",
+    project: "SewNex",
     companyName: "",
     phone: "",
     companyAddress: "",
@@ -138,7 +138,7 @@ const FreeDemoModal: React.FC<Props> = ({ onClose }) => {
   console.log("op",options.area)
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="grid grid-cols-12 w-[75%] max-lg:w-[90%] max-h-[90%] overflow-y-scroll rounded-lg my-3">
+      <div className="grid grid-cols-12 w-[75%] max-lg:w-[90%] max-h-[90%] max-md:overflow-y-scroll rounded-lg my-3">
         {/* Left Section */}
         <div className="flex flex-col max-[720px]:hidden  col-span-4 px-8 bg-[#003B3B] rounded-l-lg justify-center items-center">
           <h1 className="gradient-text text-[42px] font-bold">

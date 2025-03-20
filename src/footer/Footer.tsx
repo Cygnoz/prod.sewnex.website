@@ -62,7 +62,7 @@ function Footer() {
         <div className="grid grid-cols-6 px-12 gap-4">
           <div className="col-span-1">
           <p className="text-[#232222] text-2xl font-medium">Address</p>
-          <p>Cygonex Innovations Private Limited, NM Arcade, Near All India Radio (AIR), NGO Quarters Kakkanad, Kochi, Kerala, India</p>
+          <p>Cygnonex Innovations Private Limited, Mythripuram Road, Near AIR, NGO Quarters, Thrikkakara PO, Kochi, Kerala, India, 682021</p>
           </div>
           <div className="col-span-1 ms-20">
           <p className="text-[#232222] text-2xl font-medium">Contact</p>
@@ -72,7 +72,7 @@ function Footer() {
           </div>
           <div className="flex gap-1 items-center">
             <PhoneIcon   size={18} color="#232222"/>
-            <p className="text-[#786D6D] text-center text-base font-normal">+919544431166</p>
+            <p className="text-[#786D6D] text-center text-base font-normal">+919544421166</p>
           </div>
           </div>
           <hr className="rotate-90 border-dashed border-[#0BA158] w-80 -ms-10 mt-24" />
