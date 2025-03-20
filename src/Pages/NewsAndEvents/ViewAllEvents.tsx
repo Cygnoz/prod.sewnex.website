@@ -86,7 +86,7 @@ const ViewAllEvents = ({ }: Props) => {
                                         <h2 className="text-xl font-semibold my-3">{item?.title ? item?.title : 'N/A'}</h2>
                                         <div className="bg-[#C4ECEC] rounded-3xl w-44 h-7 flex gap-3 items-center px-4">
                                             <div className="bg-[#393939] rounded-full w-2 h-2"></div>
-                                            <p>{item?.meetingType || 'N/A'}</p>
+                                            <p>{item?.category?.categoryName || 'N/A'}</p>
                                         </div>
                                     </div>
                                     <div className="flex space-x-3">

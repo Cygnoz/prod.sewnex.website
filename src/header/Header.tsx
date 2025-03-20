@@ -1,9 +1,10 @@
 import headerbg from "../assets/images/header/headerbg.png";
-import header from "../assets/images/header/Frame 99.png";
+// import header from "../assets/images/header/Frame 99.png";
 import "./Header.css";
 import FreeDemoModal from "../components/FreeDemoModal";
 import Modal from "../features/Modal";
 import { useResponse } from "../context/ResponseContext";
+import PlayButtonIcon from "../assets/icons/PlayButtonIcon";
 // import { useEffect, useRef, useState } from "react";
 // import { Link } from "react-router-dom";
 
@@ -73,21 +74,21 @@ function Header() {
 
 
         <div className="flex flex-col lg:flex-row justify-between items-center px-5 lg:px-10 h-auto lg:h-[700px]">
-          <div className="mt-5 lg:mt-[10px]">
-            <img
+          <div className="mt-5 lg:mt-[10px] w-[55%] px-8">
+            {/* <img
               src={header}
               loading="lazy"
               alt="Header"
               className="max-w-[90%] sm:max-w-[70%] md:max-w-[60%] lg:w-[618px] h-auto"
-            />
+            /> */}
+            <p className="text-[#35FC85] text-[64px] font-[300px]">Comprehensive Boutique Software with Integrated POS and Analytics</p>
+            <p className="text-[#E5E5E5] text-2xl font-normal mt-6">Effortlessly Manage Your Boutique with Sewnex's <br />
+            User Friendly Interface and Flexible Features.</p>
           </div>
-          <div className="flex flex-row justify-center items-center gap-3 sm:gap-5 mt-5 lg:mt-[280px] mx-2 lg:mx-10 ">
-            <button onClick={()=>setIsFeedbackModalOpen(true)} className="bg-white px-[30px] sm:w-[200px] md:w-[220px] lg:w-[250px] h-[54px] rounded-full font-bold no">
-              Get a free demo
-            </button>
-            <button className="bg-[#90DDAF] px-[30px] sm:w-[200px] md:w-[20px] lg:w-[250px] h-[54px] rounded-full font-bold">
-              Watch Video
-            </button>
+          <div className="flex flex-row justify-center items-center gap-3 sm:gap-5 lg:mt-[250px] lg:mx-52 bg-[#2322224D] w-24 h-24 border border-[#07C9C9] shadow shadow-[#07C6C6] rounded-full">
+            <div className="bg-[] w-full h-full rounded-full flex items-center justify-center relative">
+                <PlayButtonIcon size={50} />
+              </div>
           </div>
         </div>
 

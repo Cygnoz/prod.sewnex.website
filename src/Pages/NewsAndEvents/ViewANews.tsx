@@ -74,7 +74,7 @@ const ViewANews = ({ }: Props) => {
                             <div className="flex items-center text-gray-500 text-sm mt-1 space-x-3 px-16">
                                 <div className="bg-[#C4ECEC] rounded-3xl w-44 h-7 flex gap-3 items-center px-4">
                                     <div className="bg-[#393939] rounded-full w-2 h-2"></div>
-                                    <p>ERP Software</p>
+                                    <p>{item?.category?.categoryName}</p>
                                 </div>
                                 <div className="bg-[#5F5E5E] w-[1px] h-5"></div>
                                 <div className="flex items-center gap-2 me-2">

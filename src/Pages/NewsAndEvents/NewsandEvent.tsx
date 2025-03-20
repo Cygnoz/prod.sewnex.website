@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import RecentNews from "./RecentNews"
-import ChevronLeft from "../../assets/icons/ChevronLeft"
+// import ChevronLeft from "../../assets/icons/ChevronLeft"
 import bg from '../../assets/images/blogViewBg.webp'
 import ArrowUpRight from "../../assets/icons/ArrowUpRight"
 import image1 from '../../assets/images/RecentNews1.png'
@@ -124,9 +124,9 @@ const NewsandEvent = ({ }: Props) => {
               className="h-[548px] rounded-3xl relative overflow-hidden"
               style={{ backgroundImage: `url(${latestNews?.image?.[0] || bg})`, backgroundSize: "cover" }}
             >
-              <div onClick={() => navigate('/blog')} className="p-5 rounded-full cursor-pointer w-12 h-12 border border-[#E7E7E7] cu items-center flex justify-center mt-6 mx-4">
+              {/* <div onClick={() => navigate('/blog')} className="p-5 rounded-full cursor-pointer w-12 h-12 border border-[#E7E7E7] cu items-center flex justify-center mt-6 mx-4">
                 <ChevronLeft size={20} color="#E7E7E7" />
-              </div>
+              </div> */}
               <div className="w-full px-8 py-8 absolute inset-x-0 bottom-0">
                 <div className="bg-black rounded-3xl w-44 h-7 flex gap-3 items-center px-4">
                   <div className="bg-[#FFFFFF] rounded-full w-2 h-2"></div>

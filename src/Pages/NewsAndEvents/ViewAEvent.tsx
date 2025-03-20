@@ -5,6 +5,8 @@ import image2 from '../../assets/images/ViewNewsFooter.png'
 import { endPoints } from "../../service/apiEndpoints"
 import { useEffect, useState } from "react"
 import useApi from "../../Hooks/useApi"
+import DOMPurify from "dompurify";
+
 type Props = {}
 
 const ViewAEvent = ({ }: Props) => {
@@ -58,7 +60,7 @@ const ViewAEvent = ({ }: Props) => {
           </div>
           <div className="flex justify-between items-center text-gray-500 text-sm mt-1 space-x-3 px-16">
             <div className="flex space-x-3">
-              <p className="text-[#393939] text-sm font-normal">Venue: <span>{aEvent.location || 'N/A'}</span></p>
+              <p className="text-[#393939] text-sm font-normal">Venue: <span>{aEvent.meetingType === "Online" ? "Online" : aEvent.venueName || "N/A"}</span></p>
               <div className="bg-[#5F5E5E] w-[1px] h-5"></div>
               <p className="text-[#393939] text-sm font-normal">Date: <span>{new Date(aEvent?.meetingDate).toLocaleDateString('en-GB')}</span></p>
               <div className="bg-[#5F5E5E] w-[1px] h-5"></div>
@@ -68,14 +70,18 @@ const ViewAEvent = ({ }: Props) => {
             </div>
             <div className="bg-[#C4ECEC] rounded-3xl w-44 h-7 flex gap-3 items-center px-4">
               <div className="bg-[#393939] rounded-full w-2 h-2"></div>
-              <p>{aEvent.meetingType}</p>
+              <p>{aEvent?.category?.categoryName}</p>
             </div>
           </div>
 
           <div className="my-6 px-4 py-4">
             <img className="h-[540px]" src={aEvent.image[0] || image} alt="" />
-            <p className="my-6">
-            {aEvent.content}
+            <p className="my-6"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(aEvent?.content),
+          }}
+            >
+          
             </p>
           </div>
 
