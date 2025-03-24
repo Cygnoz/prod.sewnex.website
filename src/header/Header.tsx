@@ -1,104 +1,45 @@
 import headerbg from "../assets/images/header/headerbg.png";
-// import header from "../assets/images/header/Frame 99.png";
 import "./Header.css";
 import FreeDemoModal from "../components/FreeDemoModal";
 import Modal from "../features/Modal";
 import { useResponse } from "../context/ResponseContext";
 import PlayButtonIcon from "../assets/icons/PlayButtonIcon";
-// import { useEffect, useRef, useState } from "react";
-// import { Link } from "react-router-dom";
 
 function Header() {
-  // const [menuOpen, setMenuOpen] = useState(false);
-  // const menuRef = useRef<HTMLDivElement>(null);
+  const { isFeedbackModalOpen, setIsFeedbackModalOpen } = useResponse();
 
-  // useEffect(() => {
-  //   const handleClickOutside = (event: any) => {
-  //     if (menuRef.current && !menuRef.current.contains(event.target)) {
-  //       setMenuOpen(false);
-  //     }
-  //   };
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, []);
-  const {isFeedbackModalOpen,setIsFeedbackModalOpen}=useResponse()
   return (
     <>
-    {/* <Navbar/> */}
       <div
         className="bg-[#004040] h-auto lg:h-[740px] pb-10 w-full"
         style={{
-           backgroundImage: `url(${headerbg})`,
+          backgroundImage: `url(${headerbg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        {/* <nav className="bg-opacity-60 w-full py-4 px-6 flex justify-between items-center relative">
-          <h3 className="text-[#039494] text-2xl font-bold">Sewnex</h3>
-
-          <div className="hidden md:flex text-white text-lg bg-[#004D4D] h-16 rounded-[50px] w-[595px] px-5 py-1 gap-10 justify-center items-center">
-            <Link to="/" className="hover:text-gray-300 hover:scale-125 transition-transform duration-200">Home</Link>
-            <Link to="/aboutus" className="hover:text-gray-300">About Us</Link>
-            <Link to="/features" className="hover:text-gray-300">Features</Link>
-            <Link to="/contactus" className="hover:text-gray-300">Contact Us</Link>
-          </div>
-
-          <div className="hidden md:flex items-center gap-4 lg:me-5">
-            <button className="button px-4 py-2 lg:px-8 lg:py-3">
-              <div className="dots_border"></div>
-              <span className="text_button text-white">Sign Up</span>
-            </button>
-          </div>
-
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-white text-2xl focus:outline-none"
-          >
-            ☰
-          </button>
-
-          {menuOpen && (
-            <div
-              ref={menuRef}
-              className="absolute top-16 right-4 bg-[#039494] shadow-lg rounded-md w-40 py-2 flex flex-col space-y-2 text-center text-white"
-            >
-              <Link to="/" className="hover:text-gray-300 hover:scale-125 transition-transform duration-200">Home</Link>
-              <Link to="/aboutus" className="hover:text-gray-300">About Us</Link>
-              <Link to="/features" className="hover:text-gray-300">Features</Link>
-              <Link to="/contactus" className="hover:text-gray-300">Contact Us</Link>
-            </div>
-          )}
-        </nav> */}
-
-
         <div className="flex flex-col lg:flex-row justify-between items-center px-5 lg:px-10 h-auto lg:h-[700px]">
-          <div className="mt-5 lg:mt-[10px] w-[55%] px-8">
-            {/* <img
-              src={header}
-              loading="lazy"
-              alt="Header"
-              className="max-w-[90%] sm:max-w-[70%] md:max-w-[60%] lg:w-[618px] h-auto"
-            /> */}
-            <p className="text-[#35FC85] text-[64px] font-[300px]">Comprehensive Boutique Software with Integrated POS and Analytics</p>
-            <p className="text-[#E5E5E5] text-2xl font-normal mt-6">Effortlessly Manage Your Boutique with Sewnex's <br />
-            User Friendly Interface and Flexible Features.</p>
+          <div className="mt-5 lg:mt-[10px] w-full lg:w-[55%] px-4 sm:px-8">
+            <p className="text-[#35FC85] text-4xl sm:text-5xl lg:text-[64px] font-light leading-tight my-2">
+              Comprehensive Boutique Software with Integrated POS and Analytics
+            </p>
+            <p className="text-[#E5E5E5] text-lg sm:text-2xl font-normal mt-6">
+              Effortlessly Manage Your Boutique with Sewnex's <br />
+              User-Friendly Interface and Flexible Features.
+            </p>
           </div>
-          <div className="flex flex-row justify-center items-center gap-3 sm:gap-5 lg:mt-[250px] lg:mx-52 bg-[#2322224D] w-24 h-24 border border-[#07C9C9] shadow shadow-[#07C6C6] rounded-full">
-            <div className="bg-[] w-full h-full rounded-full flex items-center justify-center relative">
-                <PlayButtonIcon size={50} />
-              </div>
+
+          <div className="flex justify-center items-center mt-10 lg:mt-[250px] lg:mx-52">
+            <div className="flex items-center justify-center w-24 h-24 border border-[#07C9C9] shadow-md shadow-[#07C6C6] rounded-full">
+              <PlayButtonIcon size={50} />
+            </div>
           </div>
-        </div>
-
-        <div>
-
         </div>
       </div>
-      <Modal   open={isFeedbackModalOpen} onClose={()=>setIsFeedbackModalOpen(false)}>
-            <FreeDemoModal onClose={()=>setIsFeedbackModalOpen(false)}/>
-          </Modal>
+
+      <Modal open={isFeedbackModalOpen} onClose={() => setIsFeedbackModalOpen(false)}>
+        <FreeDemoModal onClose={() => setIsFeedbackModalOpen(false)} />
+      </Modal>
     </>
   );
 }
