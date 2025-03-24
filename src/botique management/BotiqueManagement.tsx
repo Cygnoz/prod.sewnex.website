@@ -39,26 +39,30 @@ function BoutiqueManagement() {
           </div>
         </div> */}
 
-<div className="px-4 sm:px-8 md:px-16 sm:py-10">
-        <div className="text-center md:text-left flex justify-between">
-          <p className="text-[#003B3B] text-[36px] sm:text-[32px] md:text-[36px] font-normal whitespace-nowrap">
-          Explore our latest dashboard
+<div>
+<div>
+      <div className="px-4 sm:px-8 md:px-16 py-8 sm:py-10">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left">
+          <p className="text-[#003B3B] lg:text-4xl sm:text-[32px] md:text-[36px] font-medium whitespace-nowrap">
+            Explore our latest dashboard
           </p>
         </div>
-      
-        <p className="text-[#5B5B5B] text-[22px] sm:text-[15px] md:text-[16px] py-4 font-normal">
-        Sewnex provides seamless experience for managing your tailoring business from tracking <br />orders, inventory to handling customer requests and finances
+
+        <p className="text-[#5B5B5B] lg:text-2xl sm:text-sm md:text-base py-4 font-normal">
+          Sewnex provides a seamless experience for managing your tailoring business—from tracking <br/>
+          orders and inventory to handling customer requests and finances.
         </p>
-   
       </div>
-      <div className="-mt-44 overflow-hidden">
-          <img
-            src={image}
-            className="w-full rounded-lg"
-            loading="lazy"
-            alt="News & Insights"
-          />
-        </div>
+
+      <div className="relative -mt-24 sm:-mt-32 md:-mt-48 overflow-hidden">
+        <img
+          src={image}
+          className="w-full rounded-lg"
+          loading="lazy"
+          alt="News & Insights"
+        />
+      </div>
+    </div>
 
    <div className="min-h-screen bg-[#CDEBD9] relative">
     {/* Background Image */}
@@ -77,7 +81,7 @@ function BoutiqueManagement() {
     <div className="relative p-4 md:p-8">
       {/* Title Section - Responsive */}
       <div className="flex flex-col sm:flex-row items-center justify-between mb-8 sm:mb-12 text-center sm:text-left">
-        <h1 className="text-[36px] font-medium text-[#002222]">
+        <h1 className="lg:text-[36px] font-medium text-[#002222]">
         Streamlined Boutique Management
         </h1>
       </div>
@@ -249,7 +253,8 @@ function BoutiqueManagement() {
         </div>
       </div>
     </div>
-  </div>    
+  </div> 
+  </div>   
     </>
 
   

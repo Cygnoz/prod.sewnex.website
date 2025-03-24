@@ -6,10 +6,11 @@ import { useResponse } from "../context/ResponseContext";
 type Props = {}
 
 const Navbar = ({}: Props) => {
-    
+
        const [menuOpen, setMenuOpen] = useState(false);
         const menuRef = useRef<HTMLDivElement>(null);
         const {setIsFeedbackModalOpen}=useResponse()
+
         useEffect(() => {
           const handleClickOutside = (event: any) => {
             if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -21,11 +22,12 @@ const Navbar = ({}: Props) => {
             document.removeEventListener("mousedown", handleClickOutside);
           };
         }, []);
+
   return (
     <>
     <div>
-        <div className="bg-[#004040] w-full h-auto">
-<nav className="bg-opacity-60 w-full py-4 px-6 flex justify-between items-center relative">
+        <div className="bg-[#004040] w-full h-auto relative z-10">
+<nav className="bg-opacity-60 w-full py-4 px-6 flex justify-between items-center relative z-20">
           {/* Left Section: Logo */}
           <div className="flex items-center gap-4 px-12 py-4">
           <div className="flex -space-x-2">
@@ -63,7 +65,7 @@ const Navbar = ({}: Props) => {
           {menuOpen && (
             <div
               ref={menuRef}
-              className="absolute top-16 right-4 bg-[#039494] shadow-lg rounded-md w-40 py-2 flex flex-col space-y-2 text-center text-white"
+              className="absolute top-16 right-4 bg-[#039494] shadow-lg rounded-md w-40 py-2 flex flex-col space-y-2 text-center text-white z-50"
             >
               <Link to="/" className="hover:text-gray-300 hover:scale-125 transition-transform duration-200">Home</Link>
               <Link to="/aboutus" className="hover:text-gray-300">About Us</Link>
@@ -79,4 +81,4 @@ const Navbar = ({}: Props) => {
   )
 }
 
-export default Navbar
+export default Navbar;

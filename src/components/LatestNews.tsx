@@ -12,13 +12,13 @@ type Props = {}
 function LatestNews({ }: Props) {
   return (
     <div>
-      <div className="relative bg-black text-white -mt-10 p-4 sm:p-6 md:p-10 h-auto rounded-t-[30px]">
+      <div className="relative bg-black text-white -mt-10 p-4 sm:p-6 md:p-10 h-auto lg:rounded-t-[30px]">
         {/* Background Gradient */}
         <img
           src={backgredient}
           loading="lazy"
           alt="Background Gradient"
-          className="absolute inset-0 w-full h-full z-0 opacity-20 rounded-t-[30px]"
+          className="absolute inset-0 w-full h-full z-0 opacity-20 lg:rounded-t-[30px]"
         />
 
         {/* Content Section */}
