@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import Calendar from '../../assets/icons/Calendar'
 import Clock from '../../assets/icons/Clock'
-import blog1 from '../../assets/images/Blogs1.png'
+// import blog1 from '../../assets/images/Blogs1.png'
 import profile from '../../assets/images/blogProfile.png'
 // import recentBlog1 from '../../assets/images/recentBlog1.png'
 // import recentBlog2 from '../../assets/images/recentBlog2.png'
@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react'
 import useApi from '../../Hooks/useApi'
 import DOMPurify from "dompurify";
 import RecentlyPosted from './RecentlyPosted'
+import noImage from '../../assets/images/noImage.png'
 
 type Props = {}
 
@@ -84,7 +85,7 @@ const Blog = ({ }: Props) => {
 
         <div className="flex gap-4 my-4 overflow-x-auto px-4 sm:px-6 md:px-8">
           {thisMonth.length > 0 ? (
-            thisMonth.map((item: any, index: number) => (
+            thisMonth.reverse().map((item: any, index: number) => (
               <div
                 key={index}
                 onClick={() => navigate(`/blog/view/${item._id}`, { state: { blog: blogData } })}
@@ -102,7 +103,7 @@ const Blog = ({ }: Props) => {
 
                 {/* Blog Image */}
                 <div>
-                  <img src={item.image[0] || blog1}
+                  <img src={item.image[0] || noImage}
                     className="w-full sm:w-[401px] h-[200px] sm:h-[229px] rounded-lg object-cover"
                     alt="" />
                 </div>

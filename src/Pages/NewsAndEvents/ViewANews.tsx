@@ -63,51 +63,62 @@ const ViewANews = ({ }: Props) => {
             <div className="p-6">
                 {aNews.length > 0 ? (
                     aNews.map((item: any) => (
-                        <div>
-                            <div className="flex gap-4 items-center">
-                                <div onClick={() => navigate("/news-and-events/view-all-news")} className="bg-[#5D5D5D1A] w-12 h-12 cursor-pointer rounded-full border-2 border-[#FFFFFFA6] items-center flex justify-center">
-                                    <ChevronLeft size={20} />
-                                </div>
-                                <p className="text-2xl font-bold text-black">
-                                    {item?.title ? item?.title : 'N/A'}
-                                </p>
-                            </div>
-                            <div className="flex items-center text-gray-500 text-sm mt-1 space-x-3 px-16">
-                                <div className="bg-[#C4ECEC] rounded-3xl w-44 h-7 flex gap-3 items-center px-4">
-                                    <div className="bg-[#393939] rounded-full w-2 h-2"></div>
-                                    <p>{item?.category?.categoryName}</p>
-                                </div>
-                                <div className="bg-[#5F5E5E] w-[1px] h-5"></div>
-                                <div className="flex items-center gap-2 me-2">
-                                    <Calendar />
-                                    <span>{new Date(item?.createdAt).toLocaleDateString('en-GB')}</span>
-                                </div>
-                                <div className="bg-[#5F5E5E] w-[1px] h-5"></div>
-                                <div className="flex items-center gap-2">
-                                    <Clock />
-                                    <span>{getTimeAgo(item?.createdAt)}</span>
-                                </div>
-                            </div>
-
-                            <div className="my-6 px-4 py-4">
-                                <div className="items-center flex justify-center">
-                                <img className="h-[540px]" src={item?.image[0] || noImage} alt="" />
-                                </div>
-                                <p className="my-6"
-                                >
-                                    <p
-                                        className="text-base whitespace-pre-wrap text-[#5F5E5E] font-normal mt-2"
-                                        dangerouslySetInnerHTML={{
-                                            __html: DOMPurify.sanitize(item.content),
-                                        }}
-                                    />
-                                </p>
-                            </div>
-
-                            <div className="mt-10">
-                                <img className="" src={image2} alt="" />
-                            </div>
+                        <div className="p-4 sm:p-6">
+                        {/* Back Button & Title */}
+                        <div className="flex gap-3 sm:gap-4 items-center">
+                          <div 
+                            onClick={() => navigate("/news-and-events/view-all-news")} 
+                            className="bg-[#5D5D5D1A] w-10 h-10 sm:w-12 sm:h-12 cursor-pointer rounded-full border-2 border-[#FFFFFFA6] flex justify-center items-center"
+                          >
+                            <ChevronLeft size={18} />
+                          </div>
+                          <p className="text-lg sm:text-2xl font-bold text-black">
+                            {item?.title || 'N/A'}
+                          </p>
                         </div>
+                      
+                        {/* Metadata (Category, Date, Time) */}
+                        <div className="flex flex-wrap items-center text-gray-500 text-xs sm:text-sm mt-2 sm:mt-1 space-x-2 sm:space-x-3 px-4 sm:px-16">
+                          <div className="bg-[#C4ECEC] rounded-3xl w-fit sm:w-44 h-6 sm:h-7 flex gap-2 sm:gap-3 items-center px-3 sm:px-4">
+                            <div className="bg-[#393939] rounded-full w-2 h-2"></div>
+                            <p>{item?.category?.categoryName || 'N/A'}</p>
+                          </div>
+                          <div className="hidden sm:block bg-[#5F5E5E] w-[1px] h-5"></div>
+                          <div className="flex items-center gap-2">
+                            <Calendar />
+                            <span>{new Date(item?.createdAt).toLocaleDateString('en-GB')}</span>
+                          </div>
+                          <div className="hidden sm:block bg-[#5F5E5E] w-[1px] h-5"></div>
+                          <div className="flex items-center gap-2">
+                            <Clock />
+                            <span>{getTimeAgo(item?.createdAt)}</span>
+                          </div>
+                        </div>
+                      
+                        {/* Image & Content Section */}
+                        <div className="my-4 sm:my-6 px-2 sm:px-4 py-3 sm:py-4">
+                          <div className="flex justify-center">
+                            <img 
+                              className="lg:h-[540px] sm:max-h-[540px] object-cover rounded-md"
+                              src={item?.image[0] || noImage} 
+                              alt="News Image" 
+                            />
+                          </div>
+                          <p className="my-4 sm:my-6 text-sm sm:text-base whitespace-pre-wrap text-[#5F5E5E] font-normal mt-2">
+                            <p
+                              dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(item.content),
+                              }}
+                            />
+                          </p>
+                        </div>
+                      
+                        {/* Second Image */}
+                        <div className="mt-6 sm:mt-10">
+                          <img className="w-full h-auto max-h-[340px] sm:max-h-[540px] object-cover rounded-md" src={image2} alt="Additional Image" />
+                        </div>
+                      </div>
+                      
                     ))
                 ) : (
                     <div className="text-red-600 flex items-center justify-center my-5">No News Available !</div>

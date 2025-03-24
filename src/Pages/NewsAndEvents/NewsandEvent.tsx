@@ -117,35 +117,47 @@ const NewsandEvent = ({ }: Props) => {
 
   return (
     <div>
-      <div className="grid grid-cols-12 p-6">
-        <div className="col-span-8">
+      <div className="grid grid-cols-12">
+        <div className="lg:col-span-8 col-span-12 lg:mt-6 lg:p-6 p-3">
           {latestNews ? (
-            <div
-              key={latestNews._id}
-              className="h-[548px] rounded-3xl relative overflow-hidden"
-              style={{ backgroundImage: `url(${latestNews?.image?.[0] || defaultImage})`, backgroundSize: "cover" }}
-            >
-              {/* <div onClick={() => navigate('/blog')} className="p-5 rounded-full cursor-pointer w-12 h-12 border border-[#E7E7E7] cu items-center flex justify-center mt-6 mx-4">
-                <ChevronLeft size={20} color="#E7E7E7" />
-              </div> */}
-              <div className="w-full px-8 py-8 absolute inset-x-0 bottom-0">
-                <div className="bg-black rounded-3xl w-44 h-7 flex gap-3 items-center px-4">
-                  <div className="bg-[#FFFFFF] rounded-full w-2 h-2"></div>
-                  <p className="text-[#FFFFFF]">{new Date(latestNews.createdAt).toLocaleDateString('en-GB')}</p>
-                </div>
-                <p className="text-white text-[28px] font-semibold leading-10 my-3">
-                  {latestNews?.title}
-                </p>
-                <div className="flex gap-5">
-                  <div className="w-11 h-11 rounded-full flex justify-center items-center bg-black border border-[#FFFFFF80]">
-                    <ArrowUpRight size={12} />
-                  </div>
-                  <div className="rounded-3xl bg-[black] w-fit h-10 px-4 border-t-0 border-b-2 border-[#FFFFFFB5] flex items-center justify-center">
-                    <p className="text-[#FFFFFF] text-sm font-normal">Read Article</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+           <div
+           key={latestNews._id}
+           className="h-[548px] sm:h-[400px] rounded-3xl relative overflow-hidden"
+           style={{ backgroundImage: `url(${latestNews?.image?.[0] || defaultImage})`, backgroundSize: "cover" }}
+         >
+           {/* Content Box */}
+           <div className="w-full px-6 sm:px-8 py-6 sm:py-8 absolute inset-x-0 bottom-0">
+             
+             {/* Date Box */}
+             <div className="bg-black rounded-3xl w-fit sm:w-44 h-6 sm:h-7 flex gap-2 sm:gap-3 items-center px-3 sm:px-4">
+               <div className="bg-[#FFFFFF] rounded-full w-2 h-2"></div>
+               <p className="text-[#FFFFFF] text-xs sm:text-sm">
+                 {new Date(latestNews.createdAt).toLocaleDateString('en-GB')}
+               </p>
+             </div>
+         
+             {/* Title */}
+             <p className="text-white text-[20px] sm:text-[28px] font-semibold leading-8 sm:leading-10 my-2 sm:my-3">
+               {latestNews?.title}
+             </p>
+         
+             {/* Buttons */}
+             <div className="flex flex-col sm:flex-row gap-3 sm:gap-5">
+               
+               {/* Arrow Icon */}
+               <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex justify-center items-center bg-black border border-[#FFFFFF80]">
+                 <ArrowUpRight size={10} />
+               </div>
+               
+               {/* Read Article Button */}
+               <div className="rounded-3xl bg-[black] w-fit h-9 sm:h-10 px-3 sm:px-4 border-t-0 border-b-2 border-[#FFFFFFB5] flex items-center justify-center">
+                 <p className="text-[#FFFFFF] text-xs sm:text-sm font-normal">Read Article</p>
+               </div>
+         
+             </div>
+           </div>
+         </div>
+         
           ) : (
             <div className="flex items-center justify-center h-[535px] text-red-500">
               No News Available!
@@ -156,7 +168,7 @@ const NewsandEvent = ({ }: Props) => {
             <RecentNews data={blogData} />
           </div>
         </div>
-        <div className="col-span-4 m-3 pe-4 pt-2">
+        <div className="lg:col-span-4 col-span-12 m-3 pe-4 pt-5">
           <div className="flex">
             <h3 className="font-bold text-xl text-black">
               Recent Events
@@ -170,11 +182,8 @@ const NewsandEvent = ({ }: Props) => {
               </button>
             </div>
           </div>
-          <div
-          // className="h-[548px] rounded-3xl relative overflow-hidden"
-          //  style={{ backgroundImage: `url(${eventImage})`, backgroundSize: "cover" }}
-          >
-            {/* <img src={eventImage} alt="" /> */}
+          <div>
+          
             <div
     className="h-[244px] relative sm:h-[300px] md:h-[350px] w-[300px] lg:h-[300px] sm:w-[480px] mt-3"
     style={{
@@ -183,15 +192,15 @@ const NewsandEvent = ({ }: Props) => {
       backgroundPosition: 'center',
     }}
   >
-    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#3D0505] to-transparent sm:h-20">
+    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#004141] to-transparent sm:h-20">
       <div className="absolute bottom-0 left-0 p-3 text-white sm:p-5">
         <div className="flex flex-col gap-2">
           <p className="font-semibold text-base sm:text-lg">
             {latestEvent?.title || 'N/A'}
           </p>
 
-          <div className="bg-[#820000] rounded-3xl w-44 h-7 flex items-center gap-2 px-4 sm:w-52 sm:h-8">
-          <div className="bg-[#393939] rounded-full w-2 h-2"></div>
+          <div className="bg-[#004D4D] rounded-3xl w-44 h-7 flex items-center gap-2 px-4 sm:w-52 sm:h-8">
+          <div className="bg-[#FFFFFF] rounded-full w-2 h-2"></div>
             <p className="text-white text-[10px] sm:text-xs">{latestEvent?.category?.categoryName || 'News'}</p>
           </div>
         </div>
@@ -213,7 +222,7 @@ const NewsandEvent = ({ }: Props) => {
                   <div className="flex justify-between">
                     <div>
                       <p className="text-[#393939] text-sm font-semibold">{item.title || 'N/A'}</p>
-                      <div className="bg-[#C4ECEC] rounded-3xl w-44 h-7 my-2 flex gap-3 items-center px-4">
+                      <div className="bg-[#C4ECEC] rounded-3xl lg:w-44 h-7 my-2 flex gap-3 items-center px-4">
                         <div className="bg-[#393939] rounded-full w-2 h-2"></div>
                         <p>{item?.category?.categoryName || 'N/A'}</p>
                       </div>
@@ -224,7 +233,7 @@ const NewsandEvent = ({ }: Props) => {
                       >
                       </p>
                     </div>
-                    <img src={item?.image[0] || defaultImage} className="w-28 h-28" alt="" />
+                    <img src={item?.image[0] || defaultImage} className="w-28 h-28 sm:w-28 sm:h-28 object-cover rounded-md" alt="" />
                   </div>
                 </div>
               ))
