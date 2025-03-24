@@ -213,12 +213,12 @@ const CustomerStories = ({ }: Props) => {
                     </div>
 
                 </div>
-                <div className="relative bg-black text-white p-6 sm:p-8 md:p-10 h-auto rounded-t-[40px] -mt-8">
+                <div className="relative bg-black text-white p-6 sm:p-8 md:p-10 h-auto rounded-t-[30px] -mt-8">
         <img
           src={backgredient}
           loading="lazy"
           alt="Background Gradient"
-          className="absolute inset-0 w-full h-full object-cover z-0 opacity-20"
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-20 rounded-t-[30px]"
         />
 
         <div className="relative z-10 grid grid-cols-2 items-center gap-4 sm:gap-6 md:flex md:justify-between text-center md:text-left">

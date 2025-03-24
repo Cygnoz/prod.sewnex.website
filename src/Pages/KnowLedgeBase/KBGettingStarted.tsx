@@ -42,7 +42,7 @@ const KBGettingStarted = ({ }: Props) => {
                 <div className="flex gap-2 items-center">
                     <p onClick={() => navigate('/knowledge-base')} className="text-[#022424] text-xl font-bold cursor-pointer">Knowledge Base</p>
                     <ChevronRight color="#002222" size={12} />
-                    <p onClick={() => navigate(`/knowledge-base/${data[0]?.category?._id}`)} className="text-[#022424] text-xl font-bold cursor-pointer">{data[0]?.category?.categoryName}</p>
+                    <p onClick={()=>(navigate(`/knowledge-base/${data[0]?.category?._id}`))} className="text-[#022424] text-xl font-bold cursor-pointer">{data[0]?.category?.categoryName}</p>
                     <ChevronRight size={12} />
                     <p className="text-[#515C5C] text-xl font-bold">{data[0]?.subCategory?.subCategoryName}</p>
                 </div>

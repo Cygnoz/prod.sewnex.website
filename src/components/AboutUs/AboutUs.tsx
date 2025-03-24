@@ -3,6 +3,12 @@ import aboutUs1 from '../../assets/images/aboutUs1.png'
 import aboutUs2 from '../../assets/images/aboutUs2.png'
 // import headerBg from '../../assets/images/aboutUsBg.png'
 import headerBg2 from '../../assets/images/tinted_image (2).png'
+import greenBg from '../../assets/images/greenColorBg.png'
+import FaceBook from '../../assets/icons/FaceBook'
+import Instagram from '../../assets/icons/Instagram'
+import YouTube from '../../assets/icons/YouTube'
+import Twitter from '../../assets/icons/Twitter'
+import backgredient from "../../assets/images/FooterBg.png";
 
 type Props = {}
 
@@ -10,7 +16,7 @@ const AboutUs = ({ }: Props) => {
     return (
         <div>
             <div
-                className="bg-[#004040] h-auto lg:h-[640px] pb-16 rounded-b-3xl"
+                className="bg-[#004040] h-auto lg:h-[680px] pb-16 rounded-b-3xl"
             // style={{
             //     backgroundImage: `url(${blackBgImage})`,
             //     backgroundSize: "cover",
@@ -18,31 +24,31 @@ const AboutUs = ({ }: Props) => {
             // }}
             >
                 <div className="relative p-6 rounded-lg overflow-hidden mb-6">
-                <div
-                    className="relative bg-[#004040] bg-opacity-60 p-12 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 
+                    <div
+                        className="relative p-12 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 
              bg-blend-multiply"
-                    style={{
-                        backgroundImage: `url(${blackBgImage})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                    }}
-                >
-                      <div className="relative w-[700px] h-[512px] ml-auto">
-                        <img src={headerBg2} alt="Sewnex Threads" className="rounded-lg shadow-lg" />
-                    </div>
+                        style={{
+                            backgroundImage: `url(${greenBg})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                        }}
+                    >
+                        <div className="relative w-[700px] h-[512px] ml-auto">
+                            <img src={headerBg2} alt="Sewnex Threads" className="rounded-lg shadow-lg" />
+                        </div>
 
-                    {/* Text Section */}
-                    <div className="absolute w-[750px] h-[416px] text-white bg-[#004040] p-16 ms-6 flex flex-col justify-center rounded-l-3xl rounded-br-[50px]">
-                        <h2 className="text-2xl md:text-3xl font-bold text-green-400">About Sewnex</h2>
-                        <p className="mt-4 text-gray-300 leading-relaxed">
-                            At Sewnex, we understand that managing a boutique involves much more than just daily operations.
-                            It’s about creating meaningful customer experiences while keeping inventory, staff, and sales running smoothly.
-                            That’s why we’ve designed Sewnex to streamline the complexities, giving you more time to focus on what matters most—
-                            nurturing relationships, growing your brand, and delivering top-notch service to your customers.
-                        </p>
+                        {/* Text Section */}
+                        <div className="absolute w-[750px] h-[416px] text-white bg-[#004040] p-16 ms-6 flex flex-col justify-center rounded-l-3xl rounded-br-[50px]">
+                            <h2 className="text-2xl md:text-3xl font-bold text-green-400">About Sewnex</h2>
+                            <p className="mt-4 text-gray-300 leading-relaxed">
+                                At Sewnex, we understand that managing a boutique involves much more than just daily operations.
+                                It’s about creating meaningful customer experiences while keeping inventory, staff, and sales running smoothly.
+                                That’s why we’ve designed Sewnex to streamline the complexities, giving you more time to focus on what matters most—
+                                nurturing relationships, growing your brand, and delivering top-notch service to your customers.
+                            </p>
+                        </div>
+
                     </div>
-                  
-                </div>
                 </div>
             </div>
             <div style={{
@@ -130,17 +136,42 @@ const AboutUs = ({ }: Props) => {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#1A1A1A] rounded-t-3xl w-full h-80">
-                <div className="">
-                    <div className="grid grid-cols-2 px-20 py-20">
-                        <div className="col-span-1">
-                            <p className="text-[#07C6C6] text-[50px] font-normal">Join The Sewnex Family</p>
-                            <p className="text-[#D9D9D9] text-base font-normal">Sewnex isn't just about software; it's about being part of a community of passionate boutique owners who are shaping the future of retail. Ready to elevate your boutique? Let Sewnex be your trusted partner in growth.</p>
+            <div className="relative bg-black text-white p-6 sm:p-8 md:p-10 h-auto rounded-t-[30px]">
+                <img
+                    src={backgredient}
+                    loading="lazy"
+                    alt="Background Gradient"
+                    className="absolute inset-0 w-full h-full z-0 opacity-20 rounded-t-[30px]"
+                />
+
+                <div className="relative z-10 grid grid-cols-2 items-center gap-4 sm:gap-6 md:flex md:justify-between text-center md:text-left">
+                    <div className="p-4 flex justify-center md:justify-start">
+                        <div>
+                            <p className="text-[42px] font-normal text-[#07C6C6] leading-tight">
+                                Stay connected, stay inspired.
+                            </p>
+                            <p className="text-[#D9D9D9] text-base font-normal my-2">Join us on social media and be part of the Sewnex community.
+                            </p>
                         </div>
-                        <div className="col-span-1 items-center ml-auto px-40 py-16">
-                            <div className="rounded-[50px] bg-[#FFFFFF] w-fit h-12 flex justify-center items-center px-8">
-                                <p className="text-[#232222] text-2xl font-medium">Get Started With Sewnex</p>
-                            </div>
+                    </div>
+
+                    <div className="p-4 flex flex-col items-center justify-center space-y-2">
+                        <p className="text-[42px] font-medium text-[#D9D9D9]">
+                            Follow Us On
+                        </p>
+
+                        <div className="flex justify-center md:justify-start gap-2 sm:gap-4 items-center">
+                            <a href="https://www.facebook.com/cygnotechlabs/" target="_blank" rel="noopener noreferrer">
+                                <FaceBook bg="#FEFEFE" size={26} />
+                            </a>
+                            <a href="https://www.instagram.com/cygnoz_/" target="_blank" rel="noopener noreferrer">
+                                <Instagram bg="#FEFEFE" color="" size={32} />
+                            </a>
+                            <a href="" target="_blank" rel="noopener noreferrer">
+                                <YouTube bg="#FEFEFE" color="" size={32} />
+                            </a>
+                            <Twitter bg="#FEFEFE" color="" size={24} />
+
                         </div>
                     </div>
                 </div>

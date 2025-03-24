@@ -41,15 +41,15 @@ const Privacy = ({ }: Props) => {
         <div>
             {privacy.length>0 ? (
                 privacy.map((item:any, index:number)=>(
-                    <div className="my-10 mx-8 space-y-4">
-                    <p className="text-2xl font-bold">Privacy Policy</p>
-                    <p className="text-lg font-semibold py-3">Effective Date: [{new Date(item.updatedAt).toLocaleDateString('en-GB')}]</p>
+                    <div className="my-10 mx-4 sm:mx-8 space-y-6">
+                    <p className="text-3xl sm:text-4xl font-bold">Privacy Policy</p>
+                    <p className="text-lg sm:text-xl font-semibold py-3">Effective Date: [{new Date(item.updatedAt).toLocaleDateString('en-GB')}]</p>
     
-                    <div className="text-2xl text-[#6d6d6d] space-y-6">
+                    <div className="text-lg sm:text-xl text-[#6d6d6d] space-y-8">
         
-                        <div key={item._id} className="my-2">
+                        <div key={item._id} className="p-4 rounded-lg shadow-sm">
                             <p className="mb-3 text-[#393939] text-2xl font-semibold">{index + 1}. {item.termTitle}</p>
-                            <p className="text-[#393939] text-xl font-normal">{item.termDescription}</p>
+                            <p className="text-[#393939] text-xl font-normal leading-relaxed">{item.termDescription}</p>
                         </div>
                         
                     </div>
@@ -57,8 +57,8 @@ const Privacy = ({ }: Props) => {
                 ))
             )
         :(
-            <div className="flex items-center justify-center h-52">
-            <p className="text-center">No Privacy Policies available</p>
+            <div className="flex items-center justify-center py-5">
+            <p className="text-center text-red-500">No Privacy Policies available</p>
           </div>
         )}
         </div>

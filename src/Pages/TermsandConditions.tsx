@@ -35,7 +35,7 @@ const TermsandConditions = ({ }: Props) => {
   return (
     <div>
       <div className="m-8 space-y-8 text-[18px] text-[#353d44] poppins-medium">
-        <p className="text-2xl   font-semibold text-black poppins-semibold">
+        <p className="text-2xl font-semibold text-black poppins-semibold">
           Terms And Conditions
         </p>
 
@@ -59,8 +59,8 @@ const TermsandConditions = ({ }: Props) => {
           ))
         )
           : (
-            <div className="flex items-center justify-center h-52">
-              <p className="text-center">No terms and conditions are available</p>
+            <div className="flex items-center justify-center py-5">
+              <p className="text-center text-red-500">No terms and conditions are available</p>
             </div>
           )}
 

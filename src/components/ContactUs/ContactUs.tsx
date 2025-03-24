@@ -1,12 +1,15 @@
+import FaceBook from "../../assets/icons/FaceBook"
 import Instagram from "../../assets/icons/Instagram"
-import LinkedIn from "../../assets/icons/LinkedIn"
 import LocationIcon from "../../assets/icons/LocationIcon"
 import Mail from "../../assets/icons/Mail"
 import PhoneIcon from "../../assets/icons/PhoneIcon"
 import Twitter from "../../assets/icons/Twitter"
+import YouTube from "../../assets/icons/YouTube"
 import person from '../../assets/images/ContactUsImg.webp'
-import blackBgImage from '../../assets/images/blackBg.png'
+// import blackBgImage from '../../assets/images/blackBg.png'
 import headerBg from '../../assets/images/contactUsBg.png'
+import greenBg from '../../assets/images/greenColorBg.png'
+import backgredient from "../../assets/images/FooterBg.png";
 
 type Props = {}
 
@@ -17,10 +20,10 @@ const ContactUs = ({ }: Props) => {
                 className="bg-[#004040] h-auto lg:h-[500px] pb-10">
                     <div className="relative py-8 px-10 rounded-lg overflow-hidden mb-6">
                     <div
-                    className="relative bg-[#004040] bg-opacity-60 rounded-3xl flex flex-col md:flex-row items-center md:items-start gap-6 
+                    className="relative rounded-3xl flex flex-col md:flex-row items-center md:items-start gap-6 
              bg-blend-multiply"
                     style={{
-                        backgroundImage: `url(${blackBgImage})`,
+                        backgroundImage: `url(${greenBg})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         height: '350px'
@@ -113,20 +116,42 @@ const ContactUs = ({ }: Props) => {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#1A1A1A] rounded-t-3xl w-full h-80">
-                <div className="">
-                    <div className="grid grid-cols-2 px-20 py-28">
-                        <div className="col-span-1">
-                            <p className="text-[#07C6C6] text-[50px] font-normal">Stay connected, stay inspired. </p>
-                            <p className="text-[#D9D9D9] text-base font-normal">Join us on social media and be part of the Swenex community.</p>
+            <div className="relative bg-black text-white p-6 sm:p-8 md:p-10 h-auto rounded-t-[30px]">
+                <img
+                    src={backgredient}
+                    loading="lazy"
+                    alt="Background Gradient"
+                    className="absolute inset-0 w-full h-full z-0 opacity-20 rounded-t-[30px]"
+                />
+
+                <div className="relative z-10 grid grid-cols-2 items-center gap-4 sm:gap-6 md:flex md:justify-between text-center md:text-left">
+                    <div className="p-4 flex justify-center md:justify-start">
+                        <div>
+                            <p className="text-[42px] font-normal text-[#07C6C6] leading-tight">
+                                Stay connected, stay inspired.
+                            </p>
+                            <p className="text-[#D9D9D9] text-base font-normal my-2">Join us on social media and be part of the Sewnex community.
+                            </p>
                         </div>
-                        <div className="col-span-1 items-center ml-auto px-40">
-                            <p className="text-[#D9D9D9] text-3xl font-medium">Follow Us On</p>
-                            <div className="flex gap-4 items-center justify-center py-4">
-                                <LinkedIn size={30} />
-                                <Instagram size={36} />
-                                <Twitter size={30} />
-                            </div>
+                    </div>
+
+                    <div className="p-4 flex flex-col items-center justify-center space-y-2">
+                        <p className="text-[42px] font-medium text-[#D9D9D9]">
+                            Follow Us On
+                        </p>
+
+                        <div className="flex justify-center md:justify-start gap-2 sm:gap-4 items-center">
+                            <a href="https://www.facebook.com/cygnotechlabs/" target="_blank" rel="noopener noreferrer">
+                                <FaceBook bg="#FEFEFE" size={26} />
+                            </a>
+                            <a href="https://www.instagram.com/cygnoz_/" target="_blank" rel="noopener noreferrer">
+                                <Instagram bg="#FEFEFE" color="" size={32} />
+                            </a>
+                            <a href="" target="_blank" rel="noopener noreferrer">
+                                <YouTube bg="#FEFEFE" color="" size={32} />
+                            </a>
+                            <Twitter bg="#FEFEFE" color="" size={24} />
+
                         </div>
                     </div>
                 </div>

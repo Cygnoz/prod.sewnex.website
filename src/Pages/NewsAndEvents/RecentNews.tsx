@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
-import image1 from '../../assets/images/RecentNews1.png'
+// import image1 from '../../assets/images/RecentNews1.png'
+import noImage from '../../assets/images/noImage.png'
 
 type Props = {data?: any}
 
@@ -27,7 +28,7 @@ const RecentNews = ({data }: Props) => {
       {data.length>0 ?(
         data.reverse().map((item:any, index:number) => (
           <div  key={index} className="bg-[#FFFFFF] border border-[#E8E8EA] rounded-xl p-4 w-96 mt-4">
-            <img src={item.image[0] || image1} className="" alt="" />
+            <img src={item.image[0] || noImage} className="" alt="" />
             <div className="bg-[#C4ECEC] rounded-3xl w-44 h-7 my-4 flex gap-3 items-center px-4">
               <div className="bg-[#393939] rounded-full w-2 h-2"></div>
               <p>{item?.category?.categoryName}</p>

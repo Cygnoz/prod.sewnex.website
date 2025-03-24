@@ -1,12 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom"
-import image from '../../assets/images/eventViewImage.webp'
+// import image from '../../assets/images/eventViewImage.webp'
 import ChevronLeft from "../../assets/icons/ChevronLeft"
 import image2 from '../../assets/images/ViewNewsFooter.png'
 import { endPoints } from "../../service/apiEndpoints"
 import { useEffect, useState } from "react"
 import useApi from "../../Hooks/useApi"
 import DOMPurify from "dompurify";
-
+import noImage from '../../assets/images/noImage.png'
 type Props = {}
 
 const ViewAEvent = ({ }: Props) => {
@@ -75,7 +75,7 @@ const ViewAEvent = ({ }: Props) => {
           </div>
 
           <div className="my-6 px-4 py-4">
-            <img className="h-[540px]" src={aEvent.image[0] || image} alt="" />
+            <img className="h-[540px]" src={aEvent.image[0] || noImage} alt="" />
             <p className="my-6"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(aEvent?.content),

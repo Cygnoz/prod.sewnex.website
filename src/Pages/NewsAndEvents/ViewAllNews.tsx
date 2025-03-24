@@ -2,12 +2,13 @@ import { useNavigate } from "react-router-dom"
 import Calendar from "../../assets/icons/Calendar"
 import Clock from "../../assets/icons/Clock"
 import ChevronLeft from "../../assets/icons/ChevronLeft"
-import image1 from '../../assets/images/eventViewImage.webp'
+// import image1 from '../../assets/images/eventViewImage.webp'
 import { useEffect, useState } from "react"
 import FilterIcon from "../../assets/icons/FilterIcon"
 import { endPoints } from "../../service/apiEndpoints"
 import useApi from "../../Hooks/useApi"
 import DOMPurify from "dompurify";
+import noImage from '../../assets/images/noImage.png'
 
 type Props = {}
 
@@ -93,7 +94,7 @@ const ViewAllNews = ({ }: Props) => {
                                     <img src={item?.image[0]} alt="News" className=" h-[124px] w-full " />
 
                                 ) : (
-                                    <img src={image1} alt="News" className=" h-[124px] w-full " />
+                                    <img src={noImage} alt="News" className=" h-[124px] w-full " />
                                 )}
                                 {/* <img src={image1} alt="News" className=" h-[124px] w-full " /> */}
                             </div>

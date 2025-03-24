@@ -1,8 +1,19 @@
-import gridimg from "../assets/images/6c15ac78-3117-4e87-9ec8-4b4427f3a6ce 4.png"; // Update the path based on your directory
-import card1 from '../assets/images/Frame 1153(order) (1).png'
-import card2 from '../assets/images/Frame 1188(inventory) (1).png'
-import card3 from '../assets/images//Frame 1188(staff).png'
-import card4 from '../assets/images/Frame 1187(accounts).png'
+// import gridimg from "../assets/images/6c15ac78-3117-4e87-9ec8-4b4427f3a6ce 4.png"; // Update the path based on your directory
+// import card1 from '../assets/images/Frame 1153(order) (1).png'
+// import card2 from '../assets/images/Frame 1188(inventory) (1).png'
+// import card3 from '../assets/images//Frame 1188(staff).png'
+// import card4 from '../assets/images/Frame 1187(accounts).png'
+import LaptopIcon from "../assets/icons/LaptopIcon";
+import RectangleBgIcon from "../assets/icons/RectangleBgIcon";
+import DotIcon from "../assets/icons/DotIcon";
+import image from "../assets/images/homeBg4.png"
+import cardImage1 from '../assets/images/homeCardBg4.png'
+import cardImage2 from '../assets/images/homeCardBg3.png'
+import cardImage3 from '../assets/images/homeCardBg2.png'
+import cardImage4 from '../assets/images/homeCardBg1.png'
+import CardListIcon from "../assets/icons/CardListIcon";
+import UsersRound from "../assets/icons/UsersRound";
+
 //  import header from "../assets/images/header/Frame 99.png";
 
 function BoutiqueManagement() {
@@ -28,12 +39,33 @@ function BoutiqueManagement() {
           </div>
         </div> */}
 
-   <div className="min-h-screen bg-[#E1E1D9] relative">
+<div className="px-4 sm:px-8 md:px-16 sm:py-10">
+        <div className="text-center md:text-left flex justify-between">
+          <p className="text-[#003B3B] text-[36px] sm:text-[32px] md:text-[36px] font-normal whitespace-nowrap">
+          Explore our latest dashboard
+          </p>
+        </div>
+      
+        <p className="text-[#5B5B5B] text-[22px] sm:text-[15px] md:text-[16px] py-4 font-normal">
+        Sewnex provides seamless experience for managing your tailoring business from tracking <br />orders, inventory to handling customer requests and finances
+        </p>
+   
+      </div>
+      <div className="-mt-44 overflow-hidden">
+          <img
+            src={image}
+            className="w-full rounded-lg"
+            loading="lazy"
+            alt="News & Insights"
+          />
+        </div>
+
+   <div className="min-h-screen bg-[#CDEBD9] relative">
     {/* Background Image */}
     <div
       className="absolute inset-0"
       style={{
-        backgroundImage: `url(${gridimg})`,
+        // backgroundImage: `url(${gridimg})`,
         backgroundSize: "contain",
         backgroundRepeat: "repeat",
         backgroundPosition: "center",
@@ -45,18 +77,176 @@ function BoutiqueManagement() {
     <div className="relative p-4 md:p-8">
       {/* Title Section - Responsive */}
       <div className="flex flex-col sm:flex-row items-center justify-between mb-8 sm:mb-12 text-center sm:text-left">
-        <h1 className="text-3xl font-bold text-[#7F5303]">
-          <span className="whitespace-nowrap">Streamlined Boutique</span> <br />
-          Management
+        <h1 className="text-[36px] font-medium text-[#002222]">
+        Streamlined Boutique Management
         </h1>
       </div>
   
       {/* Card Grid Section - Responsive */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-        <img src={card1} loading="lazy" alt="" className="w-full h-auto" />
-        <img src={card2} loading="lazy" alt="" className="w-full h-auto" />
-        <img src={card3} loading="lazy" alt="" className="w-full h-auto" />
-        <img src={card4} loading="lazy" alt="" className="w-full h-auto" />
+        <div
+        className="overflow-hidden"
+        style={{
+          backgroundImage: `url(${cardImage1})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          borderRadius: "10px",
+        }}>
+
+<div className="p-4">
+            <LaptopIcon/>
+            <p className="text-[#013030] text-xl font-medium my-3">Order Management</p>
+            <p className="text-[#606060] text-sm font-normal mb-4">Easily track orders and efficiently <br />manage client preferences.</p>
+          </div>
+
+          <div className="bg-[#FDFFFC] rounded-tl-lg rounded-br-2xl w-[260px] h-[220px] mt-[90px] ms-auto">
+          <div className="p-3">
+            <RectangleBgIcon/>
+          </div>
+          <div className="border border-[#E5E5E5]"></div>
+
+
+          <div className="flex gap-2 py-6 px-6">
+         <div className="mt-2">
+         <DotIcon size={4}/>
+         </div>
+          <p className="text-[#5B5B5B] text-sm font-normal">Effortless order tracking and tailored management for every client.</p>
+         
+          </div> 
+          <div className="flex gap-2 px-6">
+         <div className="mt-2">
+         <DotIcon size={4}/>
+         </div>
+          <p className="text-[#5B5B5B] text-sm font-normal">Effortless order tracking and tailored management for every client.</p>
+          </div>
+          
+          </div>
+
+        </div>
+
+        <div
+        className="overflow-hidden"
+        style={{
+          backgroundImage: `url(${cardImage2})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          borderRadius: "10px",
+        }}>
+
+<div className="p-4">
+            <LaptopIcon/>
+            <p className="text-[#013030] text-xl font-medium my-3">Inventory Management</p>
+            <p className="text-[#606060] text-sm font-normal mb-4">Practice of effectively overseeing and <br />controlling a company's stock of goods.</p>
+          </div>
+
+          <div className="bg-[#FDFFFC] rounded-tl-lg rounded-br-2xl w-[260px] h-[220px] mt-[90px] ms-auto">
+          <div className="p-3">
+            <RectangleBgIcon color="#91634A"/>
+          </div>
+          <div className="border border-[#E5E5E5]"></div>
+
+
+          <div className="flex gap-2 py-6 px-6">
+         <div className="mt-2">
+         <DotIcon size={4}/>
+         </div>
+          <p className="text-[#5B5B5B] text-sm font-normal">Efficiently storing inventory to minimize costs and prevent damage.</p>
+         
+          </div> 
+          <div className="flex gap-2 px-6">
+         <div className="mt-2">
+         <DotIcon size={4}/>
+         </div>
+          <p className="text-[#5B5B5B] text-sm font-normal">More efficient use of resources and streamlined processes.</p>
+          </div>
+          
+          </div>
+
+        </div>
+
+        <div
+        className="overflow-hidden"
+        style={{
+          backgroundImage: `url(${cardImage3})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          borderRadius: "10px",
+        }}>
+
+<div className="p-4">
+            <CardListIcon/>
+            <p className="text-[#013030] text-xl font-medium my-3">POS Management</p>
+            <p className="text-[#606060] text-sm font-normal mb-4">Manages sales, transactions, inventory, <br />and provides real-time insights for POS operations.</p>
+          </div>
+
+          <div className="bg-[#FDFFFC] rounded-tl-lg rounded-br-2xl w-[260px] h-[220px] mt-[90px] ms-auto">
+          <div className="p-3">
+            <RectangleBgIcon color="#71AC1F"/>
+          </div>
+          <div className="border border-[#E5E5E5]"></div>
+
+
+          <div className="flex gap-2 py-6 px-6">
+         <div className="mt-2">
+         <DotIcon size={4}/>
+         </div>
+          <p className="text-[#5B5B5B] text-sm font-normal">Enhances customer experience with quick and efficient checkout processes.</p>
+         
+          </div> 
+          <div className="flex gap-2 px-6">
+         <div className="mt-2">
+         <DotIcon size={4}/>
+         </div>
+          <p className="text-[#5B5B5B] text-sm font-normal">Streamlines inventory tracking and stock updates directly through the POS system.</p>
+          </div>
+          
+          </div>
+
+        </div>
+
+        <div
+        className="overflow-hidden"
+        style={{
+          backgroundImage: `url(${cardImage4})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          borderRadius: "10px",
+        }}>
+
+<div className="p-4">
+            <UsersRound/>
+            <p className="text-[#013030] text-xl font-medium my-3">Staff Management</p>
+            <p className="text-[#606060] text-sm font-normal mb-4">Optimize staff assignments and track <br />productivity effortlessly.</p>
+          </div>
+
+          <div className="bg-[#FDFFFC] rounded-tl-lg rounded-br-2xl w-[260px] h-[220px] mt-[90px] ms-auto">
+          <div className="p-3">
+            <RectangleBgIcon color="#C57883"/>
+          </div>
+          <div className="border border-[#E5E5E5]"></div>
+
+
+          <div className="flex gap-2 py-6 px-6">
+         <div className="mt-2">
+         <DotIcon size={4}/>
+         </div>
+          <p className="text-[#5B5B5B] text-sm font-normal">Effortlessly handle staff profiles, work status, salaries.</p>
+         
+          </div> 
+          <div className="flex gap-2 px-6">
+         <div className="mt-2">
+         <DotIcon size={4}/>
+         </div>
+          <p className="text-[#5B5B5B] text-sm font-normal">Simplify the management of salaries, commissions, and performance for better staff oversight.</p>
+          </div>
+          
+          </div>
+
+        </div>
       </div>
     </div>
   </div>    

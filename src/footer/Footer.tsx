@@ -14,40 +14,6 @@ import footer3 from '../assets/images/Footer3.png'
 function Footer() {
   return (
     <>
-      {/* <div className="relative bg-[#FFB974] text-white p-6 sm:p-8 md:p-10 h-auto">
-        <img
-          src={backgredient}
-          loading="lazy"
-          alt="Background Gradient"
-          className="absolute inset-0 w-full h-full object-cover z-0 opacity-20"
-        />
-
-        <div className="relative z-10 grid grid-cols-2 items-center gap-4 sm:gap-6 md:flex md:justify-between text-center md:text-left">
-          <div className="p-4 flex justify-center md:justify-start">
-            <p className="text-[16px] sm:text-[20px] md:text-[32px] font-bold text-[#7F5303] leading-tight">
-              Discover more about <br className="hidden sm:block" /> our offerings
-            </p>
-          </div>
-
-          <div className="p-4 flex flex-col items-center md:items-start space-y-2 sm:space-y-4">
-            <p className="text-[16px] sm:text-[20px] md:text-[32px] font-bold text-[#A06600]">
-              Get in touch
-            </p>
-
-            <div className="flex justify-center md:justify-start gap-2 sm:gap-4 items-center">
-              <a><WhatsappIcon color="#A06600" size={24} /></a>
-              <a href="https://www.instagram.com/cygnoz_/" target="_blank" rel="noopener noreferrer">
-                <InstagramIcon size={24} />
-              </a>
-              <TwitterIcon size={24} />
-              <a href="https://www.facebook.com/cygnotechlabs/" target="_blank" rel="noopener noreferrer">
-                <FacebookIcon color="#A06600" size={24} />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       <footer className="bg-white py-10">
 
         <div className="">
@@ -59,12 +25,12 @@ function Footer() {
           </div>
           <p className="text-[#232222] text-3xl font-medium">Sewnex</p>
         </div>
-        <div className="grid grid-cols-6 px-12 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 px-12 gap-4">
           <div className="col-span-1">
           <p className="text-[#232222] text-2xl font-medium">Address</p>
-          <p>Cygnonex Innovations Private Limited, Mythripuram Road, Near AIR, NGO Quarters, Thrikkakara PO, Kochi, Kerala, India, 682021</p>
+          <p className="text-[#786D6D] text-base font-normal text-start">Cygnonex Innovations Private Limited, Mythripuram Road, Near AIR, NGO Quarters, Thrikkakara PO, Kochi, Kerala, India, 682021</p>
           </div>
-          <div className="col-span-1 ms-20">
+          <div className="col-span-1 lg:ms-20">
           <p className="text-[#232222] text-2xl font-medium">Contact</p>
           <div className="flex gap-1 items-center">
             <Mail size={18} color="#232222"/>
@@ -75,13 +41,8 @@ function Footer() {
             <p className="text-[#786D6D] text-center text-base font-normal">+919544421166</p>
           </div>
           </div>
-          <hr className="rotate-90 border-dashed border-[#0BA158] w-80 -ms-10 mt-24" />
-          {/* <div className="col-span-1">
-          <p className="text-[#232222] text-2xl font-medium mb-1">Site Info</p>
-          <p className="my-1 text-[#786D6D] font-normal text-base">Legal Privacy</p>
-          <p className="text-[#786D6D] font-normal text-base">Terms & Services</p>
-          <p className="my-1 text-[#786D6D] font-normal text-base">Security</p>
-          </div> */}
+          <hr className="lg:rotate-90 lg:border-dashed lg:border-[#0BA158] lg:w-80 lg:-ms-10 lg:mt-24" />
+          
           <div>
           <h3 className="text-[#232222] text-2xl font-medium mb-1">Site Info</h3>
           <ul className="text-[#786D6D] font-normal text-base space-y-1">
@@ -106,20 +67,9 @@ function Footer() {
             <li><a href="/news-and-events">News & Events</a></li>
           </ul>
         </div>
-          {/* <div className="col-span-1">
-          <p className="text-[#232222] text-2xl font-medium">About Sewnex</p>
-          <p className="my-1 text-[#786D6D] font-normal text-base">About Us</p>
-          <p className="text-[#786D6D] font-normal text-base">Contact Us</p>
-          <p className="my-1 text-[#786D6D] font-normal text-base">Customer Stories</p>
-          </div>
+          
           <div className="col-span-1">
-          <p className="text-[#232222] text-2xl font-medium">Learn</p>
-          <p className="my-1 text-[#786D6D] font-normal text-base">Blogs</p>
-          <p className="text-[#786D6D] font-normal text-base">Knowledge Base</p>
-          <p className="my-1 text-[#786D6D] font-normal text-base">News & Events</p>
-          </div> */}
-          <div className="col-span-1">
-          <div className="flex gap-4 mt-10">
+          <div className="lg:flex gap-4 mt-10">
             <img className="w-24 h-16" src={footer1} alt="" />
             <img className="w-28 h-14" src={footer2} alt="" />
             <img className="w-32 h-14" src={footer3} alt="" />
@@ -134,6 +84,7 @@ function Footer() {
       <p className="text-[#FFFFFF] text-sm">Sewnex 2024 | All Rights Reserved</p>
     </div>
   </div>
+
     </>
   );
 }

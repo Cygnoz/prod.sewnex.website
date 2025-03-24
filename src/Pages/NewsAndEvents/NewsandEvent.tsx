@@ -1,14 +1,15 @@
 import { useNavigate } from "react-router-dom"
 import RecentNews from "./RecentNews"
 // import ChevronLeft from "../../assets/icons/ChevronLeft"
-import bg from '../../assets/images/blogViewBg.webp'
+// import bg from '../../assets/images/blogViewBg.webp'
 import ArrowUpRight from "../../assets/icons/ArrowUpRight"
-import image1 from '../../assets/images/RecentNews1.png'
-import eventImage from '../../assets/images/Frame 1618873146.png'
+// import image1 from '../../assets/images/RecentNews1.png'
+// import eventImage from '../../assets/images/Frame 1618873146.png'
 import { useEffect, useState } from "react"
 import { endPoints } from "../../service/apiEndpoints"
 import useApi from "../../Hooks/useApi"
 import DOMPurify from "dompurify";
+import defaultImage from '../../assets/images/noImage.png'
 
 type Props = {}
 
@@ -110,7 +111,7 @@ const NewsandEvent = ({ }: Props) => {
 
   console.log("Latest News Image", latestNews);
   const navigate = useNavigate()
-  console.log(latestEvent);
+  console.log('ss',latestEvent);
   console.log(thisMonth);
 
 
@@ -122,7 +123,7 @@ const NewsandEvent = ({ }: Props) => {
             <div
               key={latestNews._id}
               className="h-[548px] rounded-3xl relative overflow-hidden"
-              style={{ backgroundImage: `url(${latestNews?.image?.[0] || bg})`, backgroundSize: "cover" }}
+              style={{ backgroundImage: `url(${latestNews?.image?.[0] || defaultImage})`, backgroundSize: "cover" }}
             >
               {/* <div onClick={() => navigate('/blog')} className="p-5 rounded-full cursor-pointer w-12 h-12 border border-[#E7E7E7] cu items-center flex justify-center mt-6 mx-4">
                 <ChevronLeft size={20} color="#E7E7E7" />
@@ -155,7 +156,7 @@ const NewsandEvent = ({ }: Props) => {
             <RecentNews data={blogData} />
           </div>
         </div>
-        <div className="col-span-4 m-3 pe-4 pt-5">
+        <div className="col-span-4 m-3 pe-4 pt-2">
           <div className="flex">
             <h3 className="font-bold text-xl text-black">
               Recent Events
@@ -173,45 +174,64 @@ const NewsandEvent = ({ }: Props) => {
           // className="h-[548px] rounded-3xl relative overflow-hidden"
           //  style={{ backgroundImage: `url(${eventImage})`, backgroundSize: "cover" }}
           >
-            <img src={eventImage} alt="" />
+            {/* <img src={eventImage} alt="" /> */}
+            <div
+    className="h-[244px] relative sm:h-[300px] md:h-[350px] w-[300px] lg:h-[300px] sm:w-[480px] mt-3"
+    style={{
+      backgroundImage: `url(${latestEvent?.image[0]|| defaultImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}
+  >
+    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#3D0505] to-transparent sm:h-20">
+      <div className="absolute bottom-0 left-0 p-3 text-white sm:p-5">
+        <div className="flex flex-col gap-2">
+          <p className="font-semibold text-base sm:text-lg">
+            {latestEvent?.title || 'N/A'}
+          </p>
+
+          <div className="bg-[#820000] rounded-3xl w-44 h-7 flex items-center gap-2 px-4 sm:w-52 sm:h-8">
+          <div className="bg-[#393939] rounded-full w-2 h-2"></div>
+            <p className="text-white text-[10px] sm:text-xs">{latestEvent?.category?.categoryName || 'News'}</p>
           </div>
-          {thisMonth.length > 0 ? (
-            thisMonth.map((item: any, index: number) => (
-              <div key={index} className="bg-[#FFFFFF] rounded-xl border p-4 w-full mt-4">
-                <div className="flex justify-between">
-                  <div>
-                    <p className="text-[#393939] text-sm font-semibold">{item.title || 'Tech Innovations Summit'}</p>
-                    <div className="bg-[#C4ECEC] rounded-3xl w-44 h-7 my-2 flex gap-3 items-center px-4">
-                      <div className="bg-[#393939] rounded-full w-2 h-2"></div>
-                      <p>ERP Software</p>
+        </div>
+
+        <p
+          className="text-sm font-normal sm:text-base"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(latestEvent?.content),
+          }}
+        />
+      </div>
+    </div>
+  </div>
+          </div>
+          <div className="min-h-[300px] max-h-[700px] overflow-y-auto">
+            {thisMonth.length > 0 ? (
+              thisMonth.map((item: any, index: number) => (
+                <div key={index} className="bg-[#FFFFFF] rounded-xl border p-4 w-full mt-4">
+                  <div className="flex justify-between">
+                    <div>
+                      <p className="text-[#393939] text-sm font-semibold">{item.title || 'N/A'}</p>
+                      <div className="bg-[#C4ECEC] rounded-3xl w-44 h-7 my-2 flex gap-3 items-center px-4">
+                        <div className="bg-[#393939] rounded-full w-2 h-2"></div>
+                        <p>{item?.category?.categoryName || 'N/A'}</p>
+                      </div>
+                      <p className="text-[#5F5E5E] text-xs font-normal"
+                        dangerouslySetInnerHTML={{
+                          __html: DOMPurify.sanitize(item.content),
+                        }}
+                      >
+                      </p>
                     </div>
-                    <p className="text-[#5F5E5E] text-xs font-normal"
-                      dangerouslySetInnerHTML={{
-                        __html: DOMPurify.sanitize(item.content),
-                      }}
-                    >
-                    </p>
+                    <img src={item?.image[0] || defaultImage} className="w-28 h-28" alt="" />
                   </div>
-                  <img src={item?.image[0] || image1} className="w-28 h-28" alt="" />
                 </div>
-              </div>
-            ))
-          ) : (
-            <div className="text-red-600 flex items-center justify-center my-5">No Events Available !</div>
-          )}
-          {/* <div className="bg-[#FFFFFF] rounded-xl border p-4 w-full mt-4">
-             <div className="flex justify-between">
-               <div>
-                 <p className="text-[#393939] text-sm font-semibold">Tech Innovations Summit</p>
-                 <div className="bg-[#C4ECEC] rounded-3xl w-44 h-7 my-2 flex gap-3 items-center px-4">
-                  <div className="bg-[#393939] rounded-full w-2 h-2"></div>
-                   <p>ERP Software</p>
-                 </div>
-                <p className="text-[#5F5E5E] text-xs font-normal">Join industry leaders, business owners, and financial experts at the Sewnex Annual Business Summit 2025.See what Sewnex has to offer</p>
-               </div>
-               <img src={image1} className="w-28 h-28" alt="" />
-            </div>
-           </div> */}
+              ))
+            ) : (
+              <div className="text-red-600 flex items-center justify-center my-5">No Events Available !</div>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -9,13 +9,13 @@ const testimonials = [
   {
     image: frame1,
     sentance:
-      "I recently purchased a tailoring management software. I am very pleased with its performance. The software is user-friendly and efficient, making our operations smoother. A special mention goes to Fousiya, who handles support excellently. She is always prompt and provides accurate assistance whenever we need it. Highly recommended.",
+      "Sewnex has completely transformed the way we manage our textile operations! From inventory tracking to order processing, everything is seamless and efficient. The multi-tenant feature allows us to manage multiple branches effortlessly, and the automation tools save us hours of manual work.",
     name: "Susie Wolff",
   },
   {
     image: frame2,
     sentance:
-      "Our new tailoring management software has been a fantastic investment. It's easy to use and has significantly improved our efficiency. A big thank you to Fousiya for her excellent support. She's always there to help when we need it.",
+      "Sewnex has completely transformed the way we manage our textile operations! From inventory tracking to order processing, everything is seamless and efficient. The multi-tenant feature allows us to manage multiple branches effortlessly, and the automation tools save us hours of manual work.",
     name: "Mads Mikkelsen",
   },
 ];
@@ -37,7 +37,7 @@ function Testimonial() {
         className="w-full"
       >
         <div className="flex flex-col md:flex-row text-[#DBDBDB] px-5 sm:px-10 justify-between">
-          <h1 className="text-[24px] sm:text-[28px] md:text-[36px] font-bold ms-5 pt-3">
+          <h1 className="text-[36px] text-[#DBDBDB] sm:text-[28px] md:text-[36px] font-normal ms-5 pt-3">
             What our clients are saying
           </h1>
         </div>
@@ -46,17 +46,17 @@ function Testimonial() {
             <img src={testimonials[index].image} loading="lazy" className="pt-5 w-full" alt="" />
           </div>
           <div className="text-[#CCCCCC] w-full md:w-[700px] md:mt-[18%] 2xl:mt-[10%]">
-            <p className="text-[16px] h-[65%] sm:text-[20px] md:text-[24px] font-[400] pt-8 md:pt-[10%] text-justify leading-snug">
+            <p className="text-[22px] h-[65%] sm:text-[20px] md:text-[24px] font-normal pt-8 md:pt-[10%] text-justify leading-snug">
               {testimonials[index].sentance}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-8 md:pt-[10%]" style={{ minHeight: "100px" }}>
-              <p className="text-[12px] sm:text-[14px] self-center">
+              <p className="text-[13px] text-[#B8B8B8] font-normal sm:text-[14px] self-center">
                 {testimonials[index].name} <br /> Entrepreneur
               </p>
               <div className="flex justify-end md:justify-start">
                 <button
                   onClick={toggleTestimonials}
-                  className="flex gap-5 text-[#FFFFFF] text-[14px] sm:text-[16px] items-center"
+                  className="flex gap-5 text-[#FFFFFF] text-[18px] font-normal sm:text-[16px] items-center"
                 >
                   {index === 0 ? (
                     <>

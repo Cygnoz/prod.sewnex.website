@@ -40,7 +40,7 @@ const Security = ({ }: Props) => {
         <div>
           {security.length> 0 ?(
             security.map((item:any, index:number)=>(
-              <div className="m-6 space-y-4">
+              <div className="my-10 mx-4 sm:mx-8 space-y-6">
                 <p className="text-[#3b3b3b] text-2xl font-bold">Security Terms</p>
 
                 <p className="text-xl font-semibold text-[#383838]">
@@ -56,8 +56,8 @@ const Security = ({ }: Props) => {
             </div>
             ))
           ):(
-            <div className="flex items-center justify-center h-52">
-            <p className="text-center">No Security terms are available</p>
+            <div className="flex items-center justify-center py-5">
+            <p className="text-center text-red-500">No Security terms are available</p>
           </div>
           )}
 

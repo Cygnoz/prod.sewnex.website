@@ -82,110 +82,84 @@ const Blog = ({ }: Props) => {
       <div className="p-6">
         <p className="text-[#7F5303] text-2xl font-medium">Featured This Month</p>
 
-        <div className="flex gap-4 my-4 overflow-x-auto">
+        <div className="flex gap-4 my-4 overflow-x-auto px-4 sm:px-6 md:px-8">
           {thisMonth.length > 0 ? (
             thisMonth.map((item: any, index: number) => (
-              <div key={index} onClick={() => navigate(`/blog/view/${item._id}`, { state: { blog: blogData } })} className="w-[400px] mt-6 mb-4 flex-shrink-0 cursor-pointer">
+              <div
+                key={index}
+                onClick={() => navigate(`/blog/view/${item._id}`, { state: { blog: blogData } })}
+                className="w-[90%] sm:w-[400px] flex-shrink-0 cursor-pointer"
+              >
+                {/* Category Tag */}
                 <div className="bg-gradient-to-b from-[#925E00] to-[#D28600] w-fit h-fit py-1 px-3 rounded-md">
                   <p className="text-[#FFFFFF] text-sm font-normal">{item?.category?.categoryName}</p>
                 </div>
-                <p className="text-[#222222] text-[26px] font-semibold my-3">{item.title}</p>
-                <div>
-                  <img src={item.image[0] || blog1} className='w-[401px] h-[229px] rounded-lg' alt="" />
-                </div>
-                <div className='flex gap-2 items-center my-2'>
-                  <img className='w-5 h-5 rounded-full' src={item.createdBy.userImage || profile} alt="" />
-                  <p className='text-[#777777] text-xs font-normal'>{item.createdBy.userName}</p>
-                  <div className="bg-[#999999] w-[1px] h-3 items-center"></div>
-                  <div>
-                    <Calendar />
-                  </div>
-                  <p className='text-[#777777] text-xs font-normal'>{new Date(item.createdAt).toLocaleDateString('en-GB')}</p>
-                  <div className="bg-[#999999] w-[1px] h-3 items-center"></div>
-                  <div>
-                    <Clock />
-                  </div>
-                  <p className='text-[#777777] text-xs font-normal'>{getTimeAgo(item?.createdAt)}</p>
-                </div>
-                <p className='text-[#555555] text-base font-normal'>
-                  <p
-                    className="mt-4 text-base font-normal text-[#555555]"
-                    dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(item.content),
-                    }}
-                  />
+
+                {/* Blog Title */}
+                <p className="text-[#222222] text-xl sm:text-[26px] font-semibold my-3">
+                  {item.title}
                 </p>
+
+                {/* Blog Image */}
+                <div>
+                  <img src={item.image[0] || blog1}
+                    className="w-full sm:w-[401px] h-[200px] sm:h-[229px] rounded-lg object-cover"
+                    alt="" />
+                </div>
+
+                {/* Author & Meta Info */}
+                <div className="flex flex-wrap gap-2 items-center my-2 text-xs sm:text-sm">
+                  <img className="w-5 h-5 rounded-full" src={item.createdBy.userImage || profile} alt="" />
+                  <p className="text-[#777777]">{item.createdBy.userName}</p>
+                  <div className="hidden sm:block bg-[#999999] w-[1px] h-3"></div>
+
+                  <div className="flex items-center gap-1">
+                    <Calendar />
+                    <p className="text-[#777777]">{new Date(item.createdAt).toLocaleDateString('en-GB')}</p>
+                  </div>
+
+                  <div className="hidden sm:block bg-[#999999] w-[1px] h-3"></div>
+
+                  <div className="flex items-center gap-1">
+                    <Clock />
+                    <p className="text-[#777777]">{getTimeAgo(item?.createdAt)}</p>
+                  </div>
+                </div>
+
+                {/* Blog Content Preview */}
+                <p
+                  className="mt-4 text-sm sm:text-base font-normal text-[#555555] leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(item.content),
+                  }}
+                />
               </div>
             ))
           ) : (
-            <div className="flex items-center justify-center text-red-500 mt-28">No Blogs Available !</div>
+            <div className="flex items-center justify-center text-red-500 mt-28">
+              No Blogs Available !
+            </div>
           )}
         </div>
 
-        <div className='bg-[#D9D9D9] grid grid-cols-12'>
-          <div className="col-span-8">
-            <div className='px-6 py-4'>
-              <p className='text-[#088A8A] text-xl font-medium'>Recently <span className='text-[#222222]'>Posted</span></p>
-              <RecentlyPosted blogData={blogData} />
-              {/* <div className='flex justify-between gap-5 my-4'>
-                <div>
-                  <img className='w-64 h-44 rounded-md' src={recentBlog1} alt="" />
-                </div>
-                <div>
-                  <div className="bg-[#F3E6E6] w-fit h-fit py-1 px-2 rounded-md">
-                    <p className="text-[#666666] text-sm font-normal">CRM</p>
-                  </div>
-                  <p className='text-[#222222] text-3xl font-semibold mt-3'>How Sewnex Simplifies Inventory Management</p>
-                  <div className='flex gap-2 items-center my-4'>
-                    <img className='w-5 h-5 rounded-full' src={profile} alt="" />
-                    <p className='text-[#777777] text-xs font-normal'>Jenny Kiaa</p>
-                    <div className="bg-[#999999] w-[1px] h-3 items-center"></div>
-                    <div>
-                      <Calendar />
-                    </div>
-                    <p className='text-[#777777] text-xs font-normal'>02 december 2022</p>
-                    <div className="bg-[#999999] w-[1px] h-3 items-center"></div>
-                    <div>
-                      <Clock />
-                    </div>
-                    <p className='text-[#777777] text-xs font-normal'>3 min. to read</p>
-                  </div>
-                  <p className='text-[#555555] text-base font-normal'>Expense tracking isn't just about recording numbers; it's about making informed financial decisions.</p>
-                </div>
-              </div> */}
 
-              {/* <div className='flex justify-between gap-5 my-4'>
-                <div>
-                  <img className='w-64 h-44 rounded-md' src={recentBlog2} alt="" />
-                </div>
-                <div>
-                  <div className="bg-[#F3E6E6] w-fit h-fit py-1 px-2 rounded-md">
-                    <p className="text-[#666666] text-sm font-normal">CRM</p>
-                  </div>
-                  <p className='text-[#222222] text-3xl font-semibold mt-3'>The Role of AI in Modern Business Billing</p>
-                  <div className='flex gap-2 items-center my-4'>
-                    <img className='w-5 h-5 rounded-full' src={profile} alt="" />
-                    <p className='text-[#777777] text-xs font-normal'>Jenny Kiaa</p>
-                    <div className="bg-[#999999] w-[1px] h-3 items-center"></div>
-                    <div>
-                      <Calendar />
-                    </div>
-                    <p className='text-[#777777] text-xs font-normal'>02 december 2022</p>
-                    <div className="bg-[#999999] w-[1px] h-3 items-center"></div>
-                    <div>
-                      <Clock />
-                    </div>
-                    <p className='text-[#777777] text-xs font-normal'>3 min. to read</p>
-                  </div>
-                  <p className='text-[#555555] text-base font-normal'>Expense tracking isn't just about recording numbers; it's about making informed financial decisions.</p>
-                </div>
-              </div> */}
+        <div className='bg-[#D9D9D9] grid grid-cols-12 gap-4 md:gap-6 lg:gap-0'>
+          {/* Left Section (Recently Posted) */}
+          <div className="col-span-12 md:col-span-8 lg:-mx-8 lg:px-8 lg:py-4">
+            <div className='lg:px-6 lg:py-4'>
+              <p className='text-[#088A8A] text-xl font-medium text-center md:text-left'>
+                Recently <span className='text-[#222222]'>Posted</span>
+              </p>
+              <RecentlyPosted blogData={blogData} />
             </div>
           </div>
-          <div className="col-span-4">
+
+          {/* Right Section (Categories) */}
+          <div className="col-span-12 md:col-span-4 lg:ps-24 lg:mx-3">
             <Categories />
           </div>
         </div>
+
       </div>
     </div>
   )

@@ -8,6 +8,7 @@ import { useEffect, useState } from "react"
 import { endPoints } from "../../service/apiEndpoints"
 import useApi from "../../Hooks/useApi"
 import DOMPurify from "dompurify";
+import noImage from '../../assets/images/noImage.png'
 
 type Props = {}
 
@@ -90,7 +91,7 @@ const ViewANews = ({ }: Props) => {
 
                             <div className="my-6 px-4 py-4">
                                 <div className="items-center flex justify-center">
-                                <img className="h-[540px]" src={item?.image[0]} alt="" />
+                                <img className="h-[540px]" src={item?.image[0] || noImage} alt="" />
                                 </div>
                                 <p className="my-6"
                                 >

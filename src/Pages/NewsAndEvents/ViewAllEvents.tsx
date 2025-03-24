@@ -2,10 +2,10 @@ import { useEffect, useState } from "react"
 import ChevronLeft from "../../assets/icons/ChevronLeft"
 import FilterIcon from "../../assets/icons/FilterIcon"
 import { useNavigate } from "react-router-dom"
-import image1 from '../../assets/images/eventViewImage.webp'
 import { endPoints } from "../../service/apiEndpoints"
 import useApi from "../../Hooks/useApi"
 import DOMPurify from "dompurify";
+import noImage from '../../assets/images/noImage.png'
 
 type Props = {}
 
@@ -79,7 +79,7 @@ const ViewAllEvents = ({ }: Props) => {
                         <div onClick={() => navigate(`/news-and-events/view-all-events/view-event/${item?._id}`)} className="mx-3 my-4 border-b pb-4 cursor-pointer">
                             <div className="grid grid-cols-12  gap-5">
                                 <div className="col-span-2 flex items-center justify-center">
-                                    <img src={item?.image[0] || image1} alt="News" className=" h-[124px] w-full " />
+                                    <img src={item?.image[0] || noImage} alt="News" className=" h-[124px] w-full " />
                                 </div>
                                 <div className="col-span-10">
                                     <div className="flex justify-between">
