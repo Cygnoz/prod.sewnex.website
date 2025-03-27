@@ -10,5 +10,6 @@ export const endPoints = {
     GET_CATEGORIES:'/categories',
     GET_ARTICLE:'/article',
     GET_SUBCATEGORY:'/subCategory',
+    ADD_CONTACT:'/contactUs',
 
 }    

@@ -22,6 +22,7 @@ function BillieAi({ }: Props) {
           className="w-full max-w-[594px]  h-auto"
           src={image1}
           alt="E-commerce Integration"
+          loading="lazy"
         />
 
         <div className="w-full lg:w-[40%] px-4 lg:px-0">

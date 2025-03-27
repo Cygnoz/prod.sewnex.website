@@ -31,6 +31,7 @@ const AboutUs = ({ }: Props) => {
           <div className="relative w-full max-w-[700px] lg:h-auto md:h-[512px] ml-auto">
             <img
               src={headerBg2}
+              loading="lazy"
               alt="Sewnex Threads"
               className="lg:rounded-lg shadow-lg w-full lg:h-full object-cover"
             />
@@ -63,6 +64,7 @@ const AboutUs = ({ }: Props) => {
             className="w-full max-w-[482px] h-auto lg:h-[532px]"
             src={aboutUs1}
             alt="Why Sewnex"
+            loading="lazy"
           />
         </div>
         <div className="lg:col-span-7 bg-white h-full px-6 sm:px-10 lg:px-20 py-12 lg:py-48">
@@ -86,6 +88,7 @@ const AboutUs = ({ }: Props) => {
               className="w-full max-w-[435px] h-auto lg:h-[524px] object-cover"
               src={aboutUs2}
               alt="Our Core Values"
+              loading="lazy"
             />
           </div>
         </div>
@@ -158,7 +161,9 @@ const AboutUs = ({ }: Props) => {
               <a href="" target="_blank" rel="noopener noreferrer">
                 <YouTube bg="#FEFEFE" color="" size={32} />
               </a>
+              <a href="https://x.com/cygnoz_" target="_blank" rel="noopener noreferrer">
               <Twitter bg="#FEFEFE" color="" size={24} />
+              </a>
             </div>
           </div>
 

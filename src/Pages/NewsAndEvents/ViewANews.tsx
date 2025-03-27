@@ -18,9 +18,10 @@ const ViewANews = ({ }: Props) => {
     const { id } = useParams()
     const [aNews, setANews] = useState<any[]>([]);
     const { request: getNews } = useApi('get', 3001)
-
+    const [loading, setLoading] = useState<boolean>(true);
     const handleAGetNews = async () => {
         try {
+          setLoading(true);
             const url = `${endPoints.GET_A_POST}/${id}`;
             const { response, error } = await getNews(url);
 
@@ -34,6 +35,9 @@ const ViewANews = ({ }: Props) => {
             }
         } catch (error) {
             console.log("error occurred", error);
+        }
+        finally {
+          setLoading(false);
         }
     };
 
@@ -62,6 +66,7 @@ const ViewANews = ({ }: Props) => {
         <div>
             <div className="p-6">
                 {aNews.length > 0 ? (
+                  loading?<p>Loading...</p>:
                     aNews.map((item: any) => (
                         <div className="p-4 sm:p-6">
                         {/* Back Button & Title */}
@@ -79,7 +84,7 @@ const ViewANews = ({ }: Props) => {
                       
                         {/* Metadata (Category, Date, Time) */}
                         <div className="flex flex-wrap items-center text-gray-500 text-xs sm:text-sm mt-2 sm:mt-1 space-x-2 sm:space-x-3 px-4 sm:px-16">
-                          <div className="bg-[#C4ECEC] rounded-3xl w-fit sm:w-44 h-6 sm:h-7 flex gap-2 sm:gap-3 items-center px-3 sm:px-4">
+                          <div className="bg-[#C4ECEC] rounded-3xl w-fit sm:w-fit h-6 sm:h-7 flex gap-2 sm:gap-3 items-center px-3 sm:px-4">
                             <div className="bg-[#393939] rounded-full w-2 h-2"></div>
                             <p>{item?.category?.categoryName || 'N/A'}</p>
                           </div>
@@ -102,6 +107,7 @@ const ViewANews = ({ }: Props) => {
                               className="lg:h-[540px] sm:max-h-[540px] object-cover rounded-md"
                               src={item?.image[0] || noImage} 
                               alt="News Image" 
+                              loading="lazy"
                             />
                           </div>
                           <p className="my-4 sm:my-6 text-sm sm:text-base whitespace-pre-wrap text-[#5F5E5E] font-normal mt-2">
@@ -115,7 +121,7 @@ const ViewANews = ({ }: Props) => {
                       
                         {/* Second Image */}
                         <div className="mt-6 sm:mt-10">
-                          <img className="w-full h-auto max-h-[340px] sm:max-h-[540px] object-cover rounded-md" src={image2} alt="Additional Image" />
+                          <img className="w-full h-auto max-h-[340px] sm:max-h-[540px] object-cover rounded-md" loading="lazy" src={image2} alt="Additional Image" />
                         </div>
                       </div>
                       

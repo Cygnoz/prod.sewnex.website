@@ -1,6 +1,6 @@
 import BGImg from "../assets/images/TestimonialBgImg.jpg";
 import frame1 from "../assets/images/Frame 629508(ne) (2).png";
-import frame2 from "../assets/images/Frame 629508(fe) (1).png";
+import frame2 from "../assets/images/homeBg10.png";
 import { useState } from "react";
 import ArrowRight from "../assets/icons/arrowRight";
 import ArrowLeftIcon from "../assets/icons/ArrowLeftIcon";

@@ -12,6 +12,7 @@ import useApi from '../../Hooks/useApi'
 import DOMPurify from "dompurify";
 import RecentlyPosted from './RecentlyPosted'
 import noImage from '../../assets/images/noImage.png'
+import CardSkeleton from './CardSkeleton'
 
 type Props = {}
 
@@ -21,11 +22,11 @@ const Blog = ({ }: Props) => {
   // const [loading, setLoading] = useState<boolean>(true);
   const { request: getData } = useApi("get", 3001);
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState<boolean>(true);
   const handleGetBlogData = async () => {
     try {
-      // setLoading(true);
-      const url = `${endPoints.GET_POST}?postType=Blogs&project=SewNex`;
+       setLoading(true);
+      const url = `${endPoints.GET_POST}?postType=Blogs&project=SewNex&postStatus=Published`;
       const { response, error } = await getData(url);
       console.log('url', url);
       console.log('res', response);
@@ -54,9 +55,9 @@ const Blog = ({ }: Props) => {
     } catch (error) {
       console.log("Error", error);
     }
-    // finally {
-    //   setLoading(false); // Set loading to false after API call completes
-    // }
+    finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -84,7 +85,10 @@ const Blog = ({ }: Props) => {
         <p className="text-[#7F5303] text-2xl font-medium">Featured This Month</p>
 
         <div className="flex gap-4 my-4 overflow-x-auto px-4 sm:px-6 md:px-8">
-          {thisMonth.length > 0 ? (
+          {thisMonth.length > 0 ? 
+          loading?
+          [...Array(4)].map((_, index) => <CardSkeleton key={index} />)
+          :(
             thisMonth.reverse().map((item: any, index: number) => (
               <div
                 key={index}
@@ -97,13 +101,14 @@ const Blog = ({ }: Props) => {
                 </div>
 
                 {/* Blog Title */}
-                <p className="text-[#222222] text-xl sm:text-[26px] font-semibold my-3">
+                <p className="text-[#222222] text-xl sm:text-[26px] font-semibold my-3 truncate">
                   {item.title}
                 </p>
 
                 {/* Blog Image */}
                 <div>
                   <img src={item.image[0] || noImage}
+                  loading="lazy"
                     className="w-full sm:w-[401px] h-[200px] sm:h-[229px] rounded-lg object-cover"
                     alt="" />
                 </div>

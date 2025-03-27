@@ -8,9 +8,10 @@ const TermsandConditions = ({ }: Props) => {
 
   const [terms, setTerms] = useState([]);
   const { request: getTerms } = useApi("get", 3001);
-
+  const [loading, setLoading] = useState<boolean>(true);
   const handleGetData = async () => {
     try {
+      setLoading(true);
       const url = `${endPoints.GET_TERMS}?type=TermsAndConditions&project=SewNex`;
       const { response, error } = await getTerms(url);
       console.log('url', url);
@@ -23,6 +24,9 @@ const TermsandConditions = ({ }: Props) => {
     } catch (error) {
       console.log("Error", error);
     }
+    finally {
+      setLoading(false);
+  }
   };
 
   console.log("Blog Data", terms);
@@ -51,6 +55,7 @@ const TermsandConditions = ({ }: Props) => {
         </p>
 
         {terms.length > 0 ? (
+          loading?<p>Loading...</p>:
           terms.map((item: any) => (
             <div key={item._id} className="my-4">
               <p className="mb-3 text-[#393939] text-2xl font-semibold">{item.termTitle}</p>

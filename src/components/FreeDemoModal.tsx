@@ -26,43 +26,43 @@ const FreeDemoModal: React.FC<Props> = ({ onClose }) => {
   // State for dropdown options
   const [options, setOptions] = useState({
     country: [
-      { value:'India', label: 'India' },
+      { value: 'India', label: 'India' },
       { value: 'UAE', label: 'UAE' },
-      { value: "Saudi Arabia", label:'Saudi Arabia' }
+      { value: "Saudi Arabia", label: 'Saudi Arabia' }
     ] as { value: string; label: string }[],
     region: [] as { value: string; label: string }[],
-    area: [] as { value: string; label: string;regionId:string }[],
-    filteredArea:[] as{ value: string; label:string; regionId:string }[],
+    area: [] as { value: string; label: string; regionId: string }[],
+    filteredArea: [] as { value: string; label: string; regionId: string }[],
   });
-  const {request:getRegionArea}=useApi('get',3003)
-  const {request:addWebsiteLead}=useApi('post',3001)
+  const { request: getRegionArea } = useApi('get', 3003)
+  const { request: addWebsiteLead } = useApi('post', 3001)
 
-  const getAreaRegion=async()=>{
-    try{
-      console.log("end",endPoints.GET_REGION_AREA);
-      
-      const {response,error}=await getRegionArea(endPoints.GET_REGION_AREA)
-      if(response && !error){
-        console.log("res",response);
-        const regionData=response.data?.regions.map((reg:any)=>({
-          label:reg.regionName,
-          value:reg._id
+  const getAreaRegion = async () => {
+    try {
+      console.log("end", endPoints.GET_REGION_AREA);
+
+      const { response, error } = await getRegionArea(endPoints.GET_REGION_AREA)
+      if (response && !error) {
+        console.log("res", response);
+        const regionData = response.data?.regions.map((reg: any) => ({
+          label: reg.regionName,
+          value: reg._id
         }))
-        const areaData=response.data?.areas.map((reg:any)=>({
-          label:reg.areaName,
-          value:reg._id,
-          regionId:reg.region._id
+        const areaData = response.data?.areas.map((reg: any) => ({
+          label: reg.areaName,
+          value: reg._id,
+          regionId: reg.region._id
         }))
-        setOptions((prev)=>({
+        setOptions((prev) => ({
           ...prev,
-          region:regionData,
-          area:areaData
+          region: regionData,
+          area: areaData
         }))
-      }else{
-        console.log("err",error)
+      } else {
+        console.log("err", error)
       }
-    }catch(err){
-      console.log("err",err);  
+    } catch (err) {
+      console.log("err", err);
     }
   }
 
@@ -98,36 +98,36 @@ const FreeDemoModal: React.FC<Props> = ({ onClose }) => {
     return true;
   };
 
-  const handleSubmit =async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-        console.log("Form Data:", formData);
-      try{
-        const {response,error}=await addWebsiteLead(endPoints.ADD_WEBSITE_LEAD,formData)
-        console.log("res",response)
-        console.log('err',error)
-        if(response &&!error){
+      console.log("Form Data:", formData);
+      try {
+        const { response, error } = await addWebsiteLead(endPoints.ADD_WEBSITE_LEAD, formData)
+        console.log("res", response)
+        console.log('err', error)
+        if (response && !error) {
           toast.success(response.data.message)
           onClose()
-        }else{
+        } else {
           toast.error(error.response.data.message)
         }
-      }catch(err){
-        console.log("err",err);
-        
+      } catch (err) {
+        console.log("err", err);
+
       }
       // Proceed with API call or other logic
     }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     getAreaRegion()
-  },[])
+  }, [])
 
   useEffect(() => {
     if (formData.regionId) {
       const filteredArea = options.area.filter((area) => area.regionId === formData.regionId);
-  
+
       setOptions((prev) => ({
         ...prev,
         filteredArea, // Store the filtered list separately
@@ -135,7 +135,7 @@ const FreeDemoModal: React.FC<Props> = ({ onClose }) => {
     }
   }, [formData.regionId]);
 
-  console.log("op",options.area)
+  console.log("op", options.area)
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <div className="grid grid-cols-12 w-[75%] max-lg:w-[90%] max-h-[90%] max-md:overflow-y-scroll rounded-lg my-3">
@@ -218,10 +218,23 @@ const FreeDemoModal: React.FC<Props> = ({ onClose }) => {
                 Mobile Number <span className="text-red-500">*</span>
               </label>
               <input
-                type="number"
+                type="text"
                 name="phone"
                 value={formData.phone}
-                onChange={handleInputChange}
+                maxLength={10}
+                onChange={(e) => {
+                  const numericValue = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+
+                  if (numericValue.length <= 10) {
+                    // Create a synthetic event that mimics the real one
+                    handleInputChange({
+                      target: {
+                        name: e.target.name,
+                        value: numericValue,
+                      },
+                    } as React.ChangeEvent<HTMLInputElement>);
+                  }
+                }}
                 className="w-full p-2 border-[#D1D1D1] border rounded-md"
               />
             </div>
@@ -306,26 +319,26 @@ const FreeDemoModal: React.FC<Props> = ({ onClose }) => {
                 Area<span className="text-red-500">*</span>
               </label>
               <div className="relative">
-  <select
-    name="areaId"
-    value={formData.areaId}
-    onChange={handleInputChange}
-    className="block w-full h-9 px-3 pr-8 text-sm border border-[#D1D1D1] rounded-md appearance-none"
-  >
-    <option value="">
-      {formData?.regionId === "" ? "Select Region" : "Select Area"}
-    </option>
-    {formData.regionId &&
-      options?.filteredArea.map((option) => (
-        <option key={option.value} value={option.value}>
-          {option.label}
-        </option>
-      ))}
-  </select>
-  <div className="absolute inset-y-0 right-2 flex items-center pointer-events-none">
-    <ChevronDown color="gray" />
-  </div>
-</div>
+                <select
+                  name="areaId"
+                  value={formData.areaId}
+                  onChange={handleInputChange}
+                  className="block w-full h-9 px-3 pr-8 text-sm border border-[#D1D1D1] rounded-md appearance-none"
+                >
+                  <option value="">
+                    {formData?.regionId === "" ? "Select Region" : "Select Area"}
+                  </option>
+                  {formData.regionId &&
+                    options?.filteredArea.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                </select>
+                <div className="absolute inset-y-0 right-2 flex items-center pointer-events-none">
+                  <ChevronDown color="gray" />
+                </div>
+              </div>
 
             </div>
 

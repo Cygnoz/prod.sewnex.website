@@ -16,9 +16,10 @@ const ViewAEvent = ({ }: Props) => {
   const { request: getEvent } = useApi('get', 3001)
   const { id } = useParams()
   // console.log('ii',id);
-
+  const [loading, setLoading] = useState<boolean>(true);
   const handleAGetEvent = async () => {
     try {
+      setLoading(true);
       const url = `${endPoints.GET_A_POST}/${id}`
       console.log('id', id);
 
@@ -38,6 +39,9 @@ const ViewAEvent = ({ }: Props) => {
       console.log('error occured', error);
 
     }
+    finally {
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -49,6 +53,7 @@ const ViewAEvent = ({ }: Props) => {
     <div>
       <div className="p-6">
         {aEvent ?(
+          loading?<p>Loading</p>:
          <div className="px-4 sm:px-8">
          {/* Title & Back Button */}
          <div className="flex flex-wrap gap-4 items-center">
@@ -76,7 +81,7 @@ const ViewAEvent = ({ }: Props) => {
            </div>
            
            {/* Category Tag */}
-           <div className="bg-[#C4ECEC] rounded-3xl w-fit sm:w-44 h-6 sm:h-7 flex gap-2 sm:gap-3 items-center px-3 sm:px-4 mt-2 sm:mt-0">
+           <div className="bg-[#C4ECEC] rounded-3xl w-fit sm:w-fit h-6 sm:h-7 flex gap-2 sm:gap-3 items-center px-3 sm:px-4 mt-2 sm:mt-0">
              <div className="bg-[#393939] rounded-full w-2 h-2"></div>
              <p className="text-xs sm:text-sm">{aEvent?.category?.categoryName}</p>
            </div>
@@ -89,6 +94,7 @@ const ViewAEvent = ({ }: Props) => {
                className="h-auto sm:h-[540px] w-full sm:w-auto rounded-md object-cover" 
                src={aEvent.image[0] || noImage} 
                alt="" 
+               loading="lazy"
              />
            </div>
            <p className="my-6 text-sm sm:text-base leading-relaxed"
@@ -100,7 +106,7 @@ const ViewAEvent = ({ }: Props) => {
        
          {/* Bottom Image */}
          <div className="mt-10 flex justify-center">
-           <img className="w-full sm:w-auto" src={image2} alt="" />
+           <img className="w-full sm:w-auto" loading="lazy" src={image2} alt="" />
          </div>
        </div>
        

@@ -70,9 +70,9 @@ function Footer() {
           
           <div className="col-span-1">
           <div className="lg:flex gap-4 mt-10">
-            <img className="w-24 h-16" src={footer1} alt="" />
-            <img className="w-28 h-14" src={footer2} alt="" />
-            <img className="w-32 h-14" src={footer3} alt="" />
+            <img className="w-24 h-16" loading="lazy" src={footer1} alt="" />
+            <img className="w-28 h-14" loading="lazy" src={footer2} alt="" />
+            <img className="w-32 h-14" loading="lazy" src={footer3} alt="" />
           </div>
           </div>
         </div>

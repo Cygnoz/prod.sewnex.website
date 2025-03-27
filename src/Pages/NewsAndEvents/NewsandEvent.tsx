@@ -19,13 +19,14 @@ const NewsandEvent = ({ }: Props) => {
   const [thisMonth, setThisMonth] = useState<any>([]);
   const [latestNews, setLatestNews] = useState<any>(null);
   const [latestEvent, setLatestEvent] = useState<any>(null);
-
+  const [loading, setLoading] = useState<boolean>(true);
   const { request: getNewsData } = useApi("get", 3001);
   const { request: getEventsData } = useApi("get", 3001);
 
   const handleGetBlogData = async () => {
     try {
-      const url = `${endPoints.GET_POST}?postType=News&project=SewNex`;
+      setLoading(true)
+      const url = `${endPoints.GET_POST}?postType=News&project=SewNex&postStatus=Published`;
 
       const { response, error } = await getNewsData(url);
       console.log('url', url);
@@ -61,12 +62,15 @@ const NewsandEvent = ({ }: Props) => {
       }
     } catch (error) {
       console.error("Error fetching blog data", error);
+    }finally {
+      setLoading(false);
     }
   };
 
   const handlegetEvent = async () => {
     try {
-      const url = `${endPoints.GET_POST}?postType=Events&project=SewNex`;
+      setLoading(true)
+      const url = `${endPoints.GET_POST}?postType=Events&project=SewNex&postStatus=Published`;
 
       const { response, error } = await getEventsData(url);
       console.log('ur', url);
@@ -102,6 +106,9 @@ const NewsandEvent = ({ }: Props) => {
     } catch (error) {
       console.error("Error fetching blog data", error);
     }
+    finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -119,10 +126,11 @@ const NewsandEvent = ({ }: Props) => {
     <div>
       <div className="grid grid-cols-12">
         <div className="lg:col-span-8 col-span-12 lg:mt-6 lg:p-6 p-3">
-          {latestNews ? (
+          {latestNews ? loading ? <p>Loading</p>: (
            <div
+           onClick={()=>navigate(`/news-and-events/view-all-news/view-news/${latestNews._id}`)}
            key={latestNews._id}
-           className="h-[548px] sm:h-[400px] rounded-3xl relative overflow-hidden"
+           className="h-[548px] sm:h-[400px] rounded-3xl relative overflow-hidden cursor-pointer"
            style={{ backgroundImage: `url(${latestNews?.image?.[0] || defaultImage})`, backgroundSize: "cover" }}
          >
            {/* Content Box */}
@@ -185,6 +193,7 @@ const NewsandEvent = ({ }: Props) => {
           <div>
           
             <div
+            onClick={()=>navigate(`/news-and-events/view-all-events/view-event/${latestEvent?._id}`)}
     className="h-[244px] relative sm:h-[300px] md:h-[350px] w-[300px] lg:h-[300px] sm:w-[480px] mt-3"
     style={{
       backgroundImage: `url(${latestEvent?.image[0]|| defaultImage})`,
@@ -199,9 +208,9 @@ const NewsandEvent = ({ }: Props) => {
             {latestEvent?.title || 'N/A'}
           </p>
 
-          <div className="bg-[#004D4D] rounded-3xl w-44 h-7 flex items-center gap-2 px-4 sm:w-52 sm:h-8">
+          <div className="bg-[#004D4D] rounded-3xl lg:w-fit h-7 flex items-center gap-2 px-4 sm:w-fit sm:h-8">
           <div className="bg-[#FFFFFF] rounded-full w-2 h-2"></div>
-            <p className="text-white text-[10px] sm:text-xs">{latestEvent?.category?.categoryName || 'News'}</p>
+            <p className="text-white text-[10px] sm:text-xs">{latestEvent?.category?.categoryName || 'N/A'}</p>
           </div>
         </div>
 
@@ -216,13 +225,14 @@ const NewsandEvent = ({ }: Props) => {
   </div>
           </div>
           <div className="min-h-[300px] max-h-[700px] overflow-y-auto">
-            {thisMonth.length > 0 ? (
+            {thisMonth.length > 0 ?
+            loading?<p>Loading</p>: (
               thisMonth.map((item: any, index: number) => (
                 <div key={index} className="bg-[#FFFFFF] rounded-xl border p-4 w-full mt-4">
                   <div className="flex justify-between">
                     <div>
                       <p className="text-[#393939] text-sm font-semibold">{item.title || 'N/A'}</p>
-                      <div className="bg-[#C4ECEC] rounded-3xl lg:w-44 h-7 my-2 flex gap-3 items-center px-4">
+                      <div className="bg-[#C4ECEC] rounded-3xl lg:w-fit h-7 my-2 flex gap-3 items-center px-4">
                         <div className="bg-[#393939] rounded-full w-2 h-2"></div>
                         <p>{item?.category?.categoryName || 'N/A'}</p>
                       </div>
@@ -233,7 +243,7 @@ const NewsandEvent = ({ }: Props) => {
                       >
                       </p>
                     </div>
-                    <img src={item?.image[0] || defaultImage} className="w-28 h-28 sm:w-28 sm:h-28 object-cover rounded-md" alt="" />
+                    <img src={item?.image[0] || defaultImage} loading="lazy" className="w-28 h-28 sm:w-28 sm:h-28 object-cover rounded-md" alt="" />
                   </div>
                 </div>
               ))

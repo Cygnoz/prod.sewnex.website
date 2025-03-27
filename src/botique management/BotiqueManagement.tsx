@@ -13,6 +13,7 @@ import cardImage3 from '../assets/images/homeCardBg2.png'
 import cardImage4 from '../assets/images/homeCardBg1.png'
 import CardListIcon from "../assets/icons/CardListIcon";
 import UsersRound from "../assets/icons/UsersRound";
+import CartIcon from "../assets/icons/CartIcon";
 
 //  import header from "../assets/images/header/Frame 99.png";
 
@@ -99,7 +100,7 @@ function BoutiqueManagement() {
         }}>
 
 <div className="p-4">
-            <LaptopIcon/>
+            <CartIcon/>
             <p className="text-[#013030] text-xl font-medium my-3">Order Management</p>
             <p className="text-[#606060] text-sm font-normal mb-4">Easily track orders and efficiently <br />manage client preferences.</p>
           </div>

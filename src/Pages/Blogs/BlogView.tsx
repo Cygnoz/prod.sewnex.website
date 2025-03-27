@@ -22,9 +22,10 @@ const BlogView = ({ }: Props) => {
   const { id } = useParams()
   const navigate = useNavigate()
   const { request: getABlog } = useApi('get', 3001)
-
+  const [loading, setLoading] = useState<boolean>(true);
   const handleViewBlog = async () => {
     try {
+      setLoading(true);
       const url = `${endPoints.GET_A_POST}/${id}`;
       const { response, error } = await getABlog(url);
 
@@ -42,6 +43,9 @@ const BlogView = ({ }: Props) => {
       }
     } catch (err) {
       console.log('error occurred', err);
+    }
+    finally {
+      setLoading(false);
     }
   };
 
@@ -68,7 +72,8 @@ const BlogView = ({ }: Props) => {
     <div>
       <div className="grid grid-cols-12 gap-4 m-7">
         <div className="col-span-8">
-          {viewBlog.map((item: any) => (
+          {loading?<p>Loading...</p>:
+          viewBlog.map((item: any) => (
             <div>
               <div
                 className="h-[350px] sm:h-[548px] rounded-3xl relative overflow-hidden"
@@ -93,7 +98,7 @@ const BlogView = ({ }: Props) => {
 
                   {/* Author, Date, and Category */}
                   <div className="flex flex-wrap items-center gap-2 text-xs text-white mt-3 sm:mt-4">
-                    <img src={item.createdBy?.userImage || noImage} alt="" className="h-4 w-4 sm:h-[18px] sm:w-[18px] rounded-full" />
+                    <img src={item.createdBy?.userImage || noImage} loading="lazy" alt="" className="h-4 w-4 sm:h-[18px] sm:w-[18px] rounded-full" />
                     <span>{item?.createdBy?.userName || 'Anonymous'}</span> |
                     <Calendar color="white" /> <span>{new Date(item.createdAt).toLocaleDateString('en-GB')}</span> |
                     <Clock color="white" /> <span>{getTimeAgo(item?.updatedAt)}</span>
@@ -145,7 +150,7 @@ const BlogView = ({ }: Props) => {
 
                     {/* Author & Date */}
                     <div className="flex flex-wrap items-center gap-2 text-xs text-[#777777] mt-3 sm:mt-4">
-                      <img src={item?.createdBy?.userImage || recentPost} alt="" className="h-4 w-4 sm:h-[18px] sm:w-[18px] rounded-full" />
+                      <img src={item?.createdBy?.userImage || recentPost} loading="lazy" alt="" className="h-4 w-4 sm:h-[18px] sm:w-[18px] rounded-full" />
                       <span>{item?.createdBy?.userName || 'Anonymous'}</span>
                       <div className="border-[0.5px] border-[#999999] w-[1px] h-3"></div>
                       <Calendar /> <span>{new Date(item?.createdAt).toLocaleDateString('en-GB')}</span>

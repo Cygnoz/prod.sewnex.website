@@ -48,10 +48,12 @@ function LatestNews({ }: Props) {
               <a href="https://www.instagram.com/cygnoz_/" target="_blank" rel="noopener noreferrer">
                 <Instagram bg="#FEFEFE" color="" size={32} />
               </a>
-              <a href="" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.youtube.com/@cygnoz" target="_blank" rel="noopener noreferrer">
                 <YouTube bg="#FEFEFE" color="" size={32} />
               </a>
+              <a href="https://x.com/cygnoz_" target="_blank" rel="noopener noreferrer">
               <Twitter bg="#FEFEFE" color="" size={24} />
+              </a>
             </div>
           </div>
 

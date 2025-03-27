@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import ChevronLeft from "../../assets/icons/ChevronLeft"
-import FilterIcon from "../../assets/icons/FilterIcon"
+// import FilterIcon from "../../assets/icons/FilterIcon"
 import { useNavigate } from "react-router-dom"
 import { endPoints } from "../../service/apiEndpoints"
 import useApi from "../../Hooks/useApi"
@@ -14,10 +14,11 @@ const ViewAllEvents = ({ }: Props) => {
     const navigate = useNavigate()
     const [newsData, setnewsData] = useState([]);
     const { request: getAllEventsData } = useApi("get", 3001);
-
+    const [loading, setLoading] = useState<boolean>(true);
     const handleGetnewsData = async () => {
         try {
-            const url = `${endPoints.GET_POST}?postType=Events&project=SewNex`;
+            setLoading(true);
+            const url = `${endPoints.GET_POST}?postType=Events&project=SewNex&postStatus=Published`;
             const { response, error } = await getAllEventsData(url);
             console.log('uuu', url);
             console.log('rrr', response);
@@ -31,6 +32,9 @@ const ViewAllEvents = ({ }: Props) => {
         } catch (error) {
             console.log("Error", error);
         }
+        finally {
+            setLoading(false);
+          }
     };
 
     useEffect(() => {
@@ -65,10 +69,10 @@ const ViewAllEvents = ({ }: Props) => {
 
                     {/* Filters & Search */}
                     <div className="flex flex-wrap gap-3 sm:gap-4 justify-center sm:justify-start">
-                        <div className="bg-[#FFFFFF] rounded-3xl w-fit h-10 sm:h-11 border flex items-center justify-center px-3 gap-2">
+                        {/* <div className="bg-[#FFFFFF] rounded-3xl w-fit h-10 sm:h-11 border flex items-center justify-center px-3 gap-2">
                             <FilterIcon />
-                            <p className="text-[#565148] text-xs sm:text-sm font-normal">News Category</p>
-                        </div>
+                            <p className="text-[#565148] text-xs sm:text-sm font-normal">Events Category</p>
+                        </div> */}
                         <div className="flex items-center sm:w-80 max-w-sm rounded-[20px] border px-3 sm:px-4 py-2">
                             <input
                                 type="text"
@@ -82,6 +86,7 @@ const ViewAllEvents = ({ }: Props) => {
 
                 {/* Events List */}
                 {filteredNewsData.length > 0 ? (
+                    loading?<p>Loading...</p>:
                     filteredNewsData.reverse().map((item: any) => (
                         <div
                             key={item?._id}
@@ -95,6 +100,7 @@ const ViewAllEvents = ({ }: Props) => {
                                         src={item?.image[0] || noImage}
                                         alt="News"
                                         className="h-[124px] sm:w-full rounded-md object-cover"
+                                        loading="lazy"
                                     />
                                 </div>
 
@@ -102,7 +108,7 @@ const ViewAllEvents = ({ }: Props) => {
                                 <div className="lg:col-span-10">
                                     <div className="flex flex-wrap justify-between">
                                         <h2 className="text-lg sm:text-xl font-semibold my-2 sm:my-3">{item?.title || 'N/A'}</h2>
-                                        <div className="bg-[#C4ECEC] rounded-3xl w-fit sm:w-44 h-6 sm:h-7 flex gap-2 sm:gap-3 items-center px-3 sm:px-4">
+                                        <div className="bg-[#C4ECEC] rounded-3xl w-fit sm:w-fit h-6 sm:h-7 flex gap-2 sm:gap-3 items-center px-3 sm:px-4">
                                             <div className="bg-[#393939] rounded-full w-2 h-2"></div>
                                             <p className="text-xs sm:text-sm">{item?.category?.categoryName || 'N/A'}</p>
                                         </div>

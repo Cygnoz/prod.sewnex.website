@@ -4,7 +4,7 @@ import Clock from "../../assets/icons/Clock"
 import ChevronLeft from "../../assets/icons/ChevronLeft"
 // import image1 from '../../assets/images/eventViewImage.webp'
 import { useEffect, useState } from "react"
-import FilterIcon from "../../assets/icons/FilterIcon"
+// import FilterIcon from "../../assets/icons/FilterIcon"
 import { endPoints } from "../../service/apiEndpoints"
 import useApi from "../../Hooks/useApi"
 import DOMPurify from "dompurify";
@@ -16,10 +16,11 @@ const ViewAllNews = ({ }: Props) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [allNewsData, setAllNewsData] = useState([])
     const { request: allNews } = useApi('get', 3001)
-
+    const [loading, setLoading] = useState<boolean>(true);
     const handleGetAllNews = async () => {
         try {
-            const url = `${endPoints.GET_POST}?postType=News&project=SewNex`
+            setLoading(true);
+            const url = `${endPoints.GET_POST}?postType=News&project=SewNex&postStatus=Published`
             const { response, error } = await allNews(url)
             console.log('res', response);
             console.log('err', error);
@@ -36,6 +37,9 @@ const ViewAllNews = ({ }: Props) => {
             console.log('error occured', err);
 
         }
+        finally {
+            setLoading(false);
+          }
     }
     useEffect(() => {
         handleGetAllNews()
@@ -72,10 +76,10 @@ const ViewAllNews = ({ }: Props) => {
                         </p>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <div className="bg-[#FFFFFF] rounded-3xl w-fit h-11 border items-center flex justify-center px-3 gap-2">
+                        {/* <div className="bg-[#FFFFFF] rounded-3xl w-fit h-11 border items-center flex justify-center px-3 gap-2">
                             <FilterIcon />
                             <p className="text-[#565148] text-sm font-normal">News Category</p>
-                        </div>
+                        </div> */}
                         <div className="flex items-center w-full sm:w-80 max-w-sm rounded-[20px] border px-4 py-2">
                             <input
                                 type="text"
@@ -86,16 +90,18 @@ const ViewAllNews = ({ }: Props) => {
                         </div>
                     </div>
                 </div>
-                {allNewsData ? filteredNews.reverse().map((item: any) => (
+                {allNewsData ?
+                loading?<p>Loading...</p>:
+                filteredNews.reverse().map((item: any) => (
                     <div onClick={() => navigate(`/news-and-events/view-all-news/view-news/${item._id}`)} className="cursor-pointer">
                         <div className="grid grid-cols-1 md:grid-cols-12 gap-5 border-b mx-3 my-4 pb-4">
                             <div className="md:col-span-2 flex items-center justify-center mt-4">
-                                <img src={item?.image[0] || noImage} alt="News" className=" h-[124px] w-full object-cover" />
+                                <img src={item?.image[0] || noImage} loading="lazy" alt="News" className=" h-[124px] w-full object-cover" />
                             </div>
                             <div className="md:col-span-10">
                                 <h2 className="text-xl font-semibold my-3">{item?.title ? item?.title : 'N/A'}</h2>
                                 <div className="flex flex-wrap items-center text-gray-500 text-sm mt-1 space-x-3">
-                                    <div className="bg-[#C4ECEC] rounded-3xl w-44 h-7 flex gap-3 items-center px-4">
+                                    <div className="bg-[#C4ECEC] rounded-3xl w-fit h-7 flex gap-3 items-center px-4">
                                         <div className="bg-[#393939] rounded-full w-2 h-2"></div>
                                         <p>{item?.category?.categoryName}</p>
                                     </div>
