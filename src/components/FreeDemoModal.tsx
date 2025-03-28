@@ -3,12 +3,15 @@ import ChevronDown from "../assets/icons/ChevronDown";
 import toast from "react-hot-toast";
 import useApi from "../Hooks/useApi";
 import { endPoints } from "../service/apiEndpoints";
+import Modal from "../features/Modal";
 
 interface Props {
+  open: boolean;
   onClose: () => void;
+  onAction: () => void;
 }
 
-const FreeDemoModal: React.FC<Props> = ({ onClose }) => {
+const FreeDemoModal: React.FC<Props> = ({open, onClose }) => {
   // State for form fields
   const [formData, setFormData] = useState({
     firstName: "",
@@ -137,6 +140,8 @@ const FreeDemoModal: React.FC<Props> = ({ onClose }) => {
 
   console.log("op", options.area)
   return (
+
+    <Modal open={open} onClose={onClose}>
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <div className="grid grid-cols-12 w-[75%] max-lg:w-[90%] max-h-[90%] max-md:overflow-y-scroll rounded-lg my-3">
         {/* Left Section */}
@@ -352,6 +357,8 @@ const FreeDemoModal: React.FC<Props> = ({ onClose }) => {
         </div>
       </div>
     </div>
+    </Modal>
+
   );
 };
 

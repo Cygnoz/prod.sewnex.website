@@ -101,10 +101,9 @@ const Blog = ({ }: Props) => {
                 </div>
 
                 {/* Blog Title */}
-                <p className="text-[#222222] text-xl sm:text-[26px] font-semibold my-3 truncate">
-                  {item.title}
-                </p>
-
+                <p className="w-[401px] min-h-[100px] max-h-[100px] text-[26px] font-semibold capitalize leading-9 my-4 text-[#222222] overflow-hidden line-clamp-3">
+                      {item.title}
+                    </p>
                 {/* Blog Image */}
                 <div>
                   <img src={item.image[0] || noImage}
@@ -134,7 +133,7 @@ const Blog = ({ }: Props) => {
 
                 {/* Blog Content Preview */}
                 <p
-                  className="mt-4 text-sm sm:text-base font-normal text-[#555555] leading-relaxed"
+                  className="mt-4 text-sm sm:text-base font-normal text-[#555555] w-[400px] leading-sung break-words"
                   dangerouslySetInnerHTML={{
                     __html: DOMPurify.sanitize(item.content),
                   }}

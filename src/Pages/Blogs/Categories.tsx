@@ -43,7 +43,7 @@ const Categories = ({ }: Props) => {
     <div>
       <div className='px-6 py-4'>
         <p className='text-xl font-medium bg-gradient-to-l from-[#004141] to-[#088A8A] text-transparent bg-clip-text my-4'>Categories</p>
-        <div className="overflow-y-auto max-h-96 w-full">
+        <div className="overflow-y-auto scrollbar-hidden max-h-96 w-full">
         {categories.length > 0 ? (
           loading?<p>Loading...</p>:
           categories.map((item: any) => (

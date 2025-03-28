@@ -131,7 +131,7 @@ const NewsandEvent = ({ }: Props) => {
            onClick={()=>navigate(`/news-and-events/view-all-news/view-news/${latestNews._id}`)}
            key={latestNews._id}
            className="h-[548px] sm:h-[400px] rounded-3xl relative overflow-hidden cursor-pointer"
-           style={{ backgroundImage: `url(${latestNews?.image?.[0] || defaultImage})`, backgroundSize: "cover" }}
+           style={{ backgroundImage: `url(${latestNews?.image?.[0] || defaultImage})`,backgroundSize: "cover", backgroundPosition:'center' }}
          >
            {/* Content Box */}
            <div className="w-full px-6 sm:px-8 py-6 sm:py-8 absolute inset-x-0 bottom-0">

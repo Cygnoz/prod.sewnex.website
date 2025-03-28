@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "../header/Header.css";
-import { useResponse } from "../context/ResponseContext";
+import FreeDemoModal from "../components/FreeDemoModal";
+// import { useResponse } from "../context/ResponseContext";
 
 type Props = {};
 
@@ -9,8 +10,8 @@ const Navbar = ({}: Props) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const { setIsFeedbackModalOpen } = useResponse();
-
+  // const { setIsFeedbackModalOpen } = useResponse();
+  const [modalOpen, setModalOpen] = useState(false); 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -31,6 +32,19 @@ const Navbar = ({}: Props) => {
 
   const handleLinkClick = () => {
     setMenuOpen(false);
+  };
+
+  const handleOpenModal = () => {
+    setModalOpen(true); // Open modal
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false); // Close modal
+  };
+
+  const handleAction = () => {
+    console.log("Action button clicked!");
+    handleCloseModal(); // Close the modal after the action
   };
 
   return (
@@ -56,7 +70,7 @@ const Navbar = ({}: Props) => {
 
           {/* Right Section: Sign Up Button (Hidden on Mobile) */}
           <div className="hidden md:flex items-center gap-4 lg:me-5">
-            <button onClick={() => setIsFeedbackModalOpen(true)} className="button px-4 py-2 lg:px-8 lg:py-3">
+            <button onClick={handleOpenModal} className="button px-4 py-2 lg:px-8 lg:py-3">
               <div className="dots_border"></div>
               <span className="text_button text-white">Get a Free Demo</span>
             </button>
@@ -85,6 +99,11 @@ const Navbar = ({}: Props) => {
           )}
         </nav>
       </div>
+      <FreeDemoModal
+       open={modalOpen}
+       onClose={handleCloseModal}
+       onAction={handleAction}
+      />
     </div>
   );
 };

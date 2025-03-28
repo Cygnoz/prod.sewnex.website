@@ -128,7 +128,7 @@ const BlogView = ({ }: Props) => {
               <p className="text-[#7F5303] text-xl sm:text-2xl font-medium">Related Post</p>
             </div>
 
-            <div className="overflow-x-auto flex flex-col sm:flex-row gap-4">
+            <div className="overflow-x-auto scrollbar-hidden flex flex-col sm:flex-row gap-4">
               {blogData.length > 0 ? (
                 blogData.map((item: any, index: number) => (
                   <div
