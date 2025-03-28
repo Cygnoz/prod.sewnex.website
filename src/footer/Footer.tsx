@@ -1,12 +1,7 @@
-// import backgredient from "../assets/images/footer/bggradient(f).png";
-// import sewwnex from "../assets/images/footer/Sewnex.png";
-// import ArrowRight from "../assets/icons/arrowRight";
-// import WhatsappIcon from "../assets/icons/WhatsappIcon";
-// import InstagramIcon from "../assets/icons/InstagramIcon";
-// import TwitterIcon from "../assets/icons/TwitterIcon";
-// import FacebookIcon from "../assets/icons/FacebookIcon";
-import Mail from "../assets/icons/Mail";
-import PhoneIcon from "../assets/icons/PhoneIcon";
+// import EmailIcon from "../assets/icons/EnailIcon";
+// import email from '../assets/images/footer/email2.png'
+// import Mail from "../assets/icons/Mail";
+// import PhoneIcon from "../assets/icons/PhoneIcon";
 import footer1 from '../assets/images/Footer1.png'
 import footer2 from '../assets/images/Footer2.png'
 import footer3 from '../assets/images/Footer3.png'
@@ -33,11 +28,12 @@ function Footer() {
           <div className="col-span-1 lg:ms-20">
           <p className="text-[#232222] text-2xl font-medium">Contact</p>
           <div className="flex gap-1 items-center">
-            <Mail size={18} color="#232222"/>
+            {/* <Mail size={18} color="#232222"/> */}
+            {/* <img src={email} className="w-3 h-3 border border-[#232222]" alt="" /> */}
             <p className="text-[#786D6D] text-center text-base font-normal">notify@sewnex.com</p>
           </div>
           <div className="flex gap-1 items-center">
-            <PhoneIcon   size={18} color="#232222"/>
+            {/* <PhoneIcon   size={18} color="#232222"/> */}
             <p className="text-[#786D6D] text-center text-base font-normal">+919544421166</p>
           </div>
           </div>
