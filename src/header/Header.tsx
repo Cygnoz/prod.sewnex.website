@@ -1,12 +1,12 @@
 import headerbg from "../assets/images/header/headerbg.png";
 import "./Header.css";
-import FreeDemoModal from "../components/FreeDemoModal";
-import Modal from "../features/Modal";
-import { useResponse } from "../context/ResponseContext";
+// import FreeDemoModal from "../components/FreeDemoModal";
+// import Modal from "../features/Modal";
+// import { useResponse } from "../context/ResponseContext";
 import PlayButtonIcon from "../assets/icons/PlayButtonIcon";
 
 function Header() {
-  const { isFeedbackModalOpen, setIsFeedbackModalOpen } = useResponse();
+  // const { isFeedbackModalOpen, setIsFeedbackModalOpen } = useResponse();
 
   return (
     <>
@@ -37,9 +37,9 @@ function Header() {
         </div>
       </div>
 
-      <Modal open={isFeedbackModalOpen} onClose={() => setIsFeedbackModalOpen(false)}>
-        <FreeDemoModal onClose={() => setIsFeedbackModalOpen(false)} />
-      </Modal>
+      {/* <Modal open={isFeedbackModalOpen} onClose={() => setIsFeedbackModalOpen(false)}>
+        <FreeDemoModal  onClose={() => setIsFeedbackModalOpen(false)} />
+      </Modal> */}
     </>
   );
 }
